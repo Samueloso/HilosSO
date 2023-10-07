@@ -59,7 +59,12 @@ public class Drive {
     public void addProduct(int productCanti, int type){
         
         if(type==0){
-            setNarrative(getNarrative() + productCanti);
+            int numero=getNarrative();
+            if (numero<12){
+                setNarrative(getNarrative() + productCanti);
+            }
+            else{setNarrative(getNarrative());}
+            
         }
         else if (type==1){
             setLevels(getLevels()+productCanti);
