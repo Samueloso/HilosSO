@@ -11,18 +11,22 @@ package Clases;
  */
 public class Drive {
     
-    public int narrative;
-    public int levels;
-    public int sprites;
-    public int logic;
-    public int DLC; 
+    private int narrative;
+    private int levels;
+    private int sprites;
+    private int logic;
+    private int DLC; 
+    private int games;
+    private int gamesDLC;
     
-    public Drive(int narrative, int leves, int sprites, int logic, int DLC){
+    public Drive(int narrative, int levels, int sprites, int logic, int DLC, int games, int gamesDLC){
         this.narrative = narrative;
         this.levels = levels;
         this.sprites = sprites;
         this.logic = logic;
         this.DLC = DLC ;
+        this.games = games ;
+        this.gamesDLC = gamesDLC ;
     }
     
     public int getNarrative(){
