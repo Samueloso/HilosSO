@@ -124,9 +124,9 @@ public class Drive {
         else if (type==5){ //Integrador 
             
             if(getNarrative()>1 && getLevels()>1 && getSprites()>1 && getLogic()> 1 && getDLC()>1 ){
-                
-                if(getGame()%4==0){
-                    setGame(getGame()+productCanti);
+                int juegosSinDLC = 0;
+                if(getGame()%3==0 && juegosSinDLC<3){
+                    setGamesDLC(getGamesDLC()+productCanti);
                     RestarProducto(0);
                    
                     System.out.println("SE CREO UN JUEGO CON DLC :000"+ productCanti);
@@ -136,7 +136,12 @@ public class Drive {
                 setGame(getGame()+productCanti);
                 RestarProducto(1);
                 System.out.println("SE CREO UN JUEGO");
+                juegosSinDLC++;
                 }
+                if(juegosSinDLC==3){
+                juegosSinDLC=0;
+                }
+                
 
             }
 
