@@ -27,9 +27,9 @@ public class Mainsita {
         int[] init_developer1 = {1, 1, 1, 1, 1, 1};
         int[] init_developer2 = {1, 1, 1, 1, 1, 1};
         
-        Drive drive1 = new Drive(0,0,0,0,0, 0 , 0);
+        Drive drive1 = new Drive(0,0,0,0,0, 0 , 0, Capcom);
         Company C0 = new Company(dd, dl, "algo", 19, 5f, 6f, 6f, 6f, drive1);
-        Drive drive2 = new Drive(0,0,0,0,0, 0 , 0);
+        Drive drive2 = new Drive(0,0,0,0,0, 0 , 0, SquareEnix);
         Company C1 = new Company(dd, dl, "algo", 19, 5f, 6f, 6f, 6f, drive2);
        
         C0.Begin();

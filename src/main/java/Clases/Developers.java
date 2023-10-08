@@ -70,7 +70,7 @@ public class Developers extends Thread {
             
         }
         
-        System.out.println(this.drive.getNarrative()+"----"+this.drive.getLevels()+"--"+this.drive.getLogic()+"--"+this.drive.getSprites()+"--"+this.drive.getDLC()+"***"+this.drive.getGame());
+        System.out.println(this.drive.getNarrative()+"----"+this.drive.getLevels()+"--"+this.drive.getLogic()+"--"+this.drive.getSprites()+"--"+this.drive.getDLC()+"***"+this.drive.getGames()+"***"+this.drive.getGamesDLC());
         
     
     }
