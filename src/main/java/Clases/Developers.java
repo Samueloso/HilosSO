@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,15 +15,19 @@ import java.util.logging.Logger;
  */
 public class Developers extends Thread {
     private int type;
-    private int dayDuration = 1000;
+    private int dayDuration;
     private float cumulo = 0;
     private float productPerDay;
     private Drive drive;
+    private Semaphore mutex;
     
-    public Developers(int type, float pp, Drive drive){
+    
+    public Developers(int type, int dd, float pp, Drive drive, Semaphore mutex){
         this.type = type;
+        this.dayDuration = dd;
         this.productPerDay = pp ;
         this.drive = drive;
+        this.mutex = mutex;
        
     }
     
@@ -30,13 +35,12 @@ public class Developers extends Thread {
     public void run(){
        while(true){
         try {
-            
-            
+            if (type == 5){
+            WorkIntr();
+            } else {
             Work();
+            }
             sleep(dayDuration);
-            
-            
-            
         } catch (InterruptedException ex) {
             Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -48,15 +52,30 @@ public class Developers extends Thread {
         this.cumulo += this.productPerDay;
         
         if (this.cumulo >= 1){
-            
+            this.mutex.acquire(1);
             this.drive.addProduct( 1, type);
             this.cumulo = 0; 
-            
-            
+            this.mutex.release();
         }
         
         System.out.println(this.drive.getNarrative());
     
+    }
+    
+    public void WorkIntr(){
+        
+        if (drive.getNarrative() == 1 && drive.getLevels() == 1 && drive.getSprites() == 1 && drive.getLogic() == 1 && DLC == 1){
+        this.cumulo += this.productPerDay;
+        
+        if (this.cumulo >= 1){
+            this.mutex.acquire(1);
+            this.drive.addProduct( 1, type);
+            this.cumulo = 0; 
+            this.mutex.release();
+        }
+        
+        System.out.println(this.drive.getNarrative());
+        }
     }
     
         

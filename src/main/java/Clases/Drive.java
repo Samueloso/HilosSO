@@ -77,7 +77,43 @@ public class Drive {
         else if (type==4){
             setDLC(getDLC()+productCanti);
         }
+        else if (type==5){
+            
+            setDLC(getDLC()+productCanti);
+            
+        }
+        else if (type==6){
+            setDLC(getDLC()+productCanti);
+        }
     
+    }
+
+    /**
+     * @return the games
+     */
+    public int getGames() {
+        return games;
+    }
+
+    /**
+     * @param games the games to set
+     */
+    public void setGames(int games) {
+        this.games = games;
+    }
+
+    /**
+     * @return the gamesDLC
+     */
+    public int getGamesDLC() {
+        return gamesDLC;
+    }
+
+    /**
+     * @param gamesDLC the gamesDLC to set
+     */
+    public void setGamesDLC(int gamesDLC) {
+        this.gamesDLC = gamesDLC;
     }
             
     

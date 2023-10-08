@@ -11,6 +11,8 @@ import java.util.concurrent.Semaphore;
  * @author Radenixlol
  */
 public class Company {
+    private int dayduration;
+    private int deadline;
     private String name;
     private int nworkers;
     private Developers narrative;
@@ -25,15 +27,17 @@ public class Company {
     private Semaphore mutex;
     
     
-    public Company(String name, int Nw, float nl, float s, float l, float d, Drive drive) {
+    public Company(int dd, int dl, String name, int Nw, float nl, float s, float l, float d, Drive drive) {
+        this.dayduration = dd;
+        this.deadline = dl;
         this.name = name;
         this.nworkers = Nw;
-        this.narrative = new Developers(0,nl,drive);
-        this.level = new Developers(1,nl,drive);
-        this.sprite = new Developers(2,s,drive);
-        this.logic = new Developers(3,l,drive);
-        this.dlc = new Developers(4,d,drive);
-        this.integrator = new Developers(5,0.5f,drive);
+        this.narrative = new Developers(0, dd, nl, drive, mutex);
+        this.level = new Developers(1, dd, nl, drive, mutex);
+        this.sprite = new Developers(2, dd, s, drive, mutex);
+        this.logic = new Developers(3, dd, l, drive, mutex);
+        this.dlc = new Developers(4, dd, d, drive, mutex);
+        this.integrator = new Developers(5, dd, 0.5f, drive, mutex);
 //        this.pm = 5;
 //        this.manager = 5;
         this.drive = drive;
