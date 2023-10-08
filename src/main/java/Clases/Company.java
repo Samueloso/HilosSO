@@ -24,7 +24,7 @@ public class Company {
 //    private int pm;
 //    private int manager;
     private Drive drive;
-    private Semaphore mutex;
+    private Semaphore sem = new Semaphore(1);
     
     
     public Company(int dd, int dl, String name, int Nw, float nl, float s, float l, float d, Drive drive) {
@@ -32,16 +32,15 @@ public class Company {
         this.deadline = dl;
         this.name = name;
         this.nworkers = Nw;
-        this.narrative = new Developers(0, dd, nl, drive, mutex);
-        this.level = new Developers(1, dd, nl, drive, mutex);
-        this.sprite = new Developers(2, dd, s, drive, mutex);
-        this.logic = new Developers(3, dd, l, drive, mutex);
-        this.dlc = new Developers(4, dd, d, drive, mutex);
-        this.integrator = new Developers(5, dd, 0.5f, drive, mutex);
+        this.narrative = new Developers(0, dd, nl, drive, sem);
+        this.level = new Developers(1, dd, nl, drive, sem);
+        this.sprite = new Developers(2, dd, s, drive, sem);
+        this.logic = new Developers(3, dd, l, drive, sem);
+        this.dlc = new Developers(4, dd, d, drive, sem);
+        this.integrator = new Developers(5, dd, 0.5f, drive, sem);
 //        this.pm = 5;
 //        this.manager = 5;
         this.drive = drive;
-        this.mutex = new Semaphore(1);
     }
     
     public void Begin(){
