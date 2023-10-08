@@ -60,10 +60,36 @@ public class Drive {
         this.DLC=DLC;
     }
     
+    public int getGames(){
+        return games; 
+    }
+    
+    public void setGames(int games){
+        this.games=games;
+    }
+    /**
+     * @return the gamesDLC
+     */
+    public int getGamesDLC() {
+        return gamesDLC;
+    }
+
+    /**
+     * @param gamesDLC the gamesDLC to set
+     */
+    public void setGamesDLC(int gamesDLC) {
+        this.gamesDLC = gamesDLC;
+    }
+
     public void addProduct(int productCanti, int type){
         
         if(type==0){
-            setNarrative(getNarrative() + productCanti);
+            int numero=getNarrative();
+            if (numero<12){
+                setNarrative(getNarrative() + productCanti);
+            }
+            else{setNarrative(getNarrative());}
+            
         }
         else if (type==1){
             setLevels(getLevels()+productCanti);
@@ -83,38 +109,10 @@ public class Drive {
             
         }
         else if (type==6){
-            setDLC(getDLC()+productCanti);
+            if (getNarrative()>0 && getLevels()>0 && getSprites()>0 && getLogic()>0 ){
+                setGame(getGame()+productCanti);
         }
     
-    }
-
-    /**
-     * @return the games
-     */
-    public int getGames() {
-        return games;
-    }
-
-    /**
-     * @param games the games to set
-     */
-    public void setGames(int games) {
-        this.games = games;
-    }
-
-    /**
-     * @return the gamesDLC
-     */
-    public int getGamesDLC() {
-        return gamesDLC;
-    }
-
-    /**
-     * @param gamesDLC the gamesDLC to set
-     */
-    public void setGamesDLC(int gamesDLC) {
-        this.gamesDLC = gamesDLC;
-    }
-            
+    }         
     
 }

@@ -19,17 +19,18 @@ public class Developers extends Thread {
     private float cumulo = 0;
     private float productPerDay;
     private Drive drive;
-    private Semaphore mutex;
+    private Semaphore sema;
     
     
-    public Developers(int type, int dd, float pp, Drive drive, Semaphore mutex){
+    public Developers(int type, int dd, float pp, Drive drive, Semaphore sem){
         this.type = type;
         this.dayDuration = dd;
         this.productPerDay = pp ;
         this.drive = drive;
-        this.mutex = mutex;
+        this.sema = sem;
        
     }
+    
     
     @Override 
     public void run(){
@@ -52,10 +53,21 @@ public class Developers extends Thread {
         this.cumulo += this.productPerDay;
         
         if (this.cumulo >= 1){
-            this.mutex.acquire(1);
-            this.drive.addProduct( 1, type);
-            this.cumulo = 0; 
-            this.mutex.release();
+            try {
+                
+              this.sema.acquire(1);
+               this.drive.addProduct( 1, type);
+                this.cumulo = 0;
+                this.sema.release();
+                
+                
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            
         }
         
         System.out.println(this.drive.getNarrative());

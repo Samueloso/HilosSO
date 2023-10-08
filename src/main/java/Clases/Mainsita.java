@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author samue
