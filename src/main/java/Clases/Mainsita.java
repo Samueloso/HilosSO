@@ -35,25 +35,25 @@ public class Mainsita {
         C0.Begin();
         C1.Begin();
         
-        Semaphore sem = new Semaphore(1);
-        Drive drive = new Drive(0,0,0,0,0,0,0);
-        
-        Developers dev0=new Developers(0,0.34f,drive,sem);
-        Developers dev1=new Developers(1,0.34f,drive,sem);
-        Developers dev2=new Developers(2,2.0f,drive,sem);
-        Developers dev3=new Developers(3,3.0f,drive,sem);
-        Developers dev4=new Developers(4,0.5f,drive,sem);
-        Developers dev5=new Developers(5,0.5f,drive,sem);
-        
-        
-        
-        dev0.start();
-        dev1.start();
-        dev2.start();
-        dev3.start();
-        dev4.start();
-        dev5.start();
-       
+//        Semaphore sem = new Semaphore(1);
+//        Drive drive = new Drive(0,0,0,0,0,0,0);
+//        
+//        Developers dev0=new Developers(0,0.34f,drive,sem);
+//        Developers dev1=new Developers(1,0.34f,drive,sem);
+//        Developers dev2=new Developers(2,2.0f,drive,sem);
+//        Developers dev3=new Developers(3,3.0f,drive,sem);
+//        Developers dev4=new Developers(4,0.5f,drive,sem);
+//        Developers dev5=new Developers(5,0.5f,drive,sem);
+//        
+//        
+//        
+//        dev0.start();
+//        dev1.start();
+//        dev2.start();
+//        dev3.start();
+//        dev4.start();
+//        dev5.start();
+//       
                
         
         
