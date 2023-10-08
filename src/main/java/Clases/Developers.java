@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class Developers extends Thread {
 
     private int type;
-    private int dayDuration = 1000;
+    private int dayDuration;
     private float cumulo = 0;
     private float productPerDay;
     private Drive drive;
@@ -25,6 +25,7 @@ public class Developers extends Thread {
 
     public Developers(int type, int dd, float pp, Drive drive, Semaphore sem, int init) {
         this.type = type;
+        this.dayDuration = dd;
         this.productPerDay = pp;
         this.drive = drive;
         this.sema = sem;
