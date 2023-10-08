@@ -110,9 +110,10 @@ public class Drive {
         }
         else if (type==6){
             if (getNarrative()>0 && getLevels()>0 && getSprites()>0 && getLogic()>0 ){
-                setGame(getGame()+productCanti);
+                setGames(getGames()+productCanti);
         }
     
     }         
     
+}
 }
