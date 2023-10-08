@@ -11,20 +11,22 @@ package Clases;
  */
 public class Drive {
     
-    public int narrative;
-    public int levels;
-    public int sprites;
-    public int logic;
-    public int DLC; 
-    private int game;
+    private int narrative;
+    private int levels;
+    private int sprites;
+    private int logic;
+    private int DLC; 
+    private int games;
+    private int gamesDLC;
     
-    public Drive(int narrative, int leves, int sprites, int logic, int DLC,int game){
+    public Drive(int narrative, int levels, int sprites, int logic, int DLC, int games, int gamesDLC){
         this.narrative = narrative;
         this.levels = levels;
         this.sprites = sprites;
         this.logic = logic;
         this.DLC = DLC ;
-        this.game = game;
+        this.games = games ;
+        this.gamesDLC = gamesDLC ;
     }
     
     public int getNarrative(){
@@ -59,43 +61,106 @@ public class Drive {
     }
     
     public int getGame(){
-        return game; 
+        return games; 
     }
     
     public void setGame(int game){
-        this.game=game;
+        this.games=game;
     }
     
+    /**
+     * @return the gamesDLC
+     */
+    public int getGamesDLC() {
+        return gamesDLC;
+    }
+
+    /**
+     * @param gamesDLC the gamesDLC to set
+     */
+    public void setGamesDLC(int gamesDLC) {
+        this.gamesDLC = gamesDLC;
+    }
+            
 
     public void addProduct(int productCanti, int type){
         
-        if(type==0){
+        if(type==0){ //narrativa
             int numero=getNarrative();
-            if (numero<12){
+            if (numero<25){
                 setNarrative(getNarrative() + productCanti);
             }
             else{setNarrative(getNarrative());}
             
         }
-        else if (type==1){
-            setLevels(getLevels()+productCanti);
+        else if (type==1){ //niveles
+            
+            int niveles=getLevels();
+            if(niveles<20){setLevels(getLevels()+productCanti);}
+            else{setLevels(getLevels());}
+            
         }
-        else if (type==2){
-            setSprites(getSprites()+productCanti);
+        else if (type==2){ //Sprites
+            int esprai=getSprites();
+            if(esprai<55){setSprites(getSprites()+productCanti);}
+            else{setSprites(getSprites());}
+            
         }
-        else if (type==3){
+        
+        
+        else if (type==3){ //Logica
+            int logica = getLogic();
+            if (logica < 35){
             setLogic(getLogic()+productCanti);
-        }
-        else if (type==4){
-            setDLC(getDLC()+productCanti);
-        }
-        else if (type == 5){
-            if (getNarrative()>0 && getLevels()>0 && getSprites()>0 && getLogic()>0 ){
-                setGame(getGame()+productCanti);
             }
+            else{setLogic(getLogic());}
+            
         }
+        else if (type==4){ //DLC developer
+            int delece= getDLC();
+            if (delece < 10){ setDLC(getDLC()+productCanti);}
+            else{setDLC(getDLC());}
+        }
+        else if (type==5){ //Integrador 
+            
+            if(getNarrative()>1 && getLevels()>1 && getSprites()>1 && getLogic()> 1 && getDLC()>1 ){
+                
+                if(getGame()%4==0){
+                    setGame(getGame()+productCanti);
+                    RestarProducto(0);
+                   
+                    System.out.println("SE CREO UN JUEGO CON DLC :000"+ productCanti);
+                }
+                else{
+                
+                setGame(getGame()+productCanti);
+                RestarProducto(1);
+                System.out.println("SE CREO UN JUEGO");
+                }
+
+            }
+
+        }
+        
     
     }
-            
+    
+    public int RestarProducto( int t){
+    
+     if (t==1){    setNarrative(getNarrative() - 1);
+    setLevels(getLevels()-1);
+    setSprites(getSprites()-1);
+    setLogic(getLogic()-1);} 
+     else{    
+    setNarrative(getNarrative() - 1);
+    setLevels(getLevels()-1);
+    setSprites(getSprites()-1);
+    setLogic(getLogic()-1);
+    setDLC(getDLC()-1);}
+        return 0;
+
+    }
+
+
     
 }

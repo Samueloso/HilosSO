@@ -22,14 +22,15 @@ public class Developers extends Thread {
     Semaphore sema; 
     
     public Developers(int type, float pp, Drive drive, Semaphore sem){
-        this.type = type;
-        this.productPerDay = pp ;
-        this.drive = drive;
-        this.sema = sem;
-       
+        this.type=type;
+        this.productPerDay=pp;
+        this.drive=drive;
+        this.sema=sem;
+        
     }
-    
-    
+
+
+   
     @Override 
     public void run(){
        while(true){
@@ -69,10 +70,11 @@ public class Developers extends Thread {
             
         }
         
-        System.out.println(this.drive.getNarrative());
+        System.out.println(this.drive.getNarrative()+"----"+this.drive.getLevels()+"--"+this.drive.getLogic()+"--"+this.drive.getSprites()+"--"+this.drive.getDLC()+"***"+this.drive.getGame());
+        
     
     }
-    
+   
         
 }
 
