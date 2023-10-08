@@ -16,13 +16,15 @@ public class Drive {
     public int sprites;
     public int logic;
     public int DLC; 
+    private int game;
     
-    public Drive(int narrative, int leves, int sprites, int logic, int DLC){
+    public Drive(int narrative, int leves, int sprites, int logic, int DLC,int game){
         this.narrative = narrative;
         this.levels = levels;
         this.sprites = sprites;
         this.logic = logic;
         this.DLC = DLC ;
+        this.game = game;
     }
     
     public int getNarrative(){
@@ -56,6 +58,15 @@ public class Drive {
         this.DLC=DLC;
     }
     
+    public int getGame(){
+        return game; 
+    }
+    
+    public void setGame(int game){
+        this.game=game;
+    }
+    
+
     public void addProduct(int productCanti, int type){
         
         if(type==0){
@@ -77,6 +88,11 @@ public class Drive {
         }
         else if (type==4){
             setDLC(getDLC()+productCanti);
+        }
+        else if (type == 5){
+            if (getNarrative()>0 && getLevels()>0 && getSprites()>0 && getLogic()>0 ){
+                setGame(getGame()+productCanti);
+            }
         }
     
     }

@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author samue
@@ -16,11 +18,14 @@ public class Mainsita {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Semaphore sema = new Semaphore(1);
+        Drive drive = new Drive(0,0,0,0,0,0);
+        Developers dev0 = new Developers(0,0.34f,drive,sema);
+        Developers dev1 = new Developers(0,0.34f,drive,sema);
         
-        Drive drive = new Drive(0,0,0,0,0);
-        Developers dev0 = new Developers(0,0.34f,drive);
         
         dev0.start();
+        dev1.start();
         
         
         

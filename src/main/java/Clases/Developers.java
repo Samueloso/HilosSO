@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,11 +19,13 @@ public class Developers extends Thread {
     private float cumulo = 0;
     private float productPerDay;
     private Drive drive;
+    Semaphore sema; 
     
-    public Developers(int type, float pp, Drive drive){
+    public Developers(int type, float pp, Drive drive, Semaphore sem){
         this.type = type;
         this.productPerDay = pp ;
         this.drive = drive;
+        this.sema = sem;
        
     }
     
@@ -49,9 +52,19 @@ public class Developers extends Thread {
         this.cumulo += this.productPerDay;
         
         if (this.cumulo >= 1){
+            try {
+                
+              this.sema.acquire(1);
+               this.drive.addProduct( 1, type);
+                this.cumulo = 0;
+                this.sema.release();
+                
+                
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-            this.drive.addProduct( 1, type);
-            this.cumulo = 0; 
             
             
         }
