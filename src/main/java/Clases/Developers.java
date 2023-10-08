@@ -21,7 +21,7 @@ public class Developers extends Thread {
     private Drive drive;
     Semaphore sema; 
     
-    public Developers(int type, float pp, Drive drive, Semaphore sem){
+    public Developers(int type, int dd, float pp, Drive drive, Semaphore sem){
         this.type=type;
         this.productPerDay=pp;
         this.drive=drive;
@@ -70,7 +70,7 @@ public class Developers extends Thread {
             
         }
         
-        System.out.println(this.drive.getNarrative()+"----"+this.drive.getLevels()+"--"+this.drive.getLogic()+"--"+this.drive.getSprites()+"--"+this.drive.getDLC()+"***"+this.drive.getGame()+"--"+this.drive.getGamesDLC());
+        System.out.println(this.drive.getNarrative()+"----"+this.drive.getLevels()+"--"+this.drive.getLogic()+"--"+this.drive.getSprites()+"--"+this.drive.getDLC()+"***"+this.drive.getGames()+"***"+this.drive.getGamesDLC());
         
     
     }

@@ -37,20 +37,20 @@ public class InterfazCompany extends javax.swing.JFrame {
         IntegradorLabel = new javax.swing.JLabel();
         DLCLabel = new javax.swing.JLabel();
         EntradaNarrativa = new javax.swing.JTextField();
-        EntradaNivel = new javax.swing.JTextField();
+        EntradaNiveles = new javax.swing.JTextField();
         EntradaLogica = new javax.swing.JTextField();
         EntradaDLC = new javax.swing.JTextField();
         EntradaIntegrador = new javax.swing.JTextField();
-        agregarNarrativa = new javax.swing.JButton();
-        QuitarNarrativa = new javax.swing.JButton();
-        AgregarNiveles = new javax.swing.JButton();
-        AgregarLogica = new javax.swing.JButton();
-        AgregarIntegrador = new javax.swing.JButton();
-        AgregarDLC = new javax.swing.JButton();
-        RestarNiveles = new javax.swing.JButton();
-        RestarLogica = new javax.swing.JButton();
-        RestarDLC = new javax.swing.JButton();
-        RestarIntegrador = new javax.swing.JButton();
+        agregarNarrativaBTN = new javax.swing.JButton();
+        QuitarNarrativaBTN = new javax.swing.JButton();
+        AgregarNivelesBTN = new javax.swing.JButton();
+        AgregarLogicaBTN = new javax.swing.JButton();
+        AgregarIntegradorBTN = new javax.swing.JButton();
+        AgregarDLCBTN = new javax.swing.JButton();
+        RestarNivelesBTN = new javax.swing.JButton();
+        RestarLogicaBTN = new javax.swing.JButton();
+        RestarDLCBTN = new javax.swing.JButton();
+        RestarIntegradorBTN = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -72,45 +72,85 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         DLCLabel.setText("DLC");
 
-        EntradaNarrativa.setText("jTextField1");
+        EntradaNarrativa.setText("0");
         EntradaNarrativa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaNarrativaActionPerformed(evt);
             }
         });
 
-        EntradaNivel.setText("jTextField2");
-
-        EntradaLogica.setText("jTextField3");
-
-        EntradaDLC.setText("jTextField4");
-
-        EntradaIntegrador.setText("jTextField5");
-
-        agregarNarrativa.setText("+");
-        agregarNarrativa.addActionListener(new java.awt.event.ActionListener() {
+        EntradaNiveles.setText("0");
+        EntradaNiveles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarNarrativaActionPerformed(evt);
+                EntradaNivelesActionPerformed(evt);
             }
         });
 
-        QuitarNarrativa.setText("-");
+        EntradaLogica.setText("0");
+        EntradaLogica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntradaLogicaActionPerformed(evt);
+            }
+        });
 
-        AgregarNiveles.setText("+");
+        EntradaDLC.setText("0");
+        EntradaDLC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntradaDLCActionPerformed(evt);
+            }
+        });
 
-        AgregarLogica.setText("+");
+        EntradaIntegrador.setText("0");
+        EntradaIntegrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntradaIntegradorActionPerformed(evt);
+            }
+        });
 
-        AgregarIntegrador.setText("+");
+        agregarNarrativaBTN.setText("+");
+        agregarNarrativaBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarNarrativaBTNActionPerformed(evt);
+            }
+        });
 
-        AgregarDLC.setText("+");
+        QuitarNarrativaBTN.setText("-");
 
-        RestarNiveles.setText("-");
+        AgregarNivelesBTN.setText("+");
+        AgregarNivelesBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarNivelesBTNActionPerformed(evt);
+            }
+        });
 
-        RestarLogica.setText("-");
+        AgregarLogicaBTN.setText("+");
+        AgregarLogicaBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarLogicaBTNActionPerformed(evt);
+            }
+        });
 
-        RestarDLC.setText("-");
+        AgregarIntegradorBTN.setText("+");
+        AgregarIntegradorBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarIntegradorBTNActionPerformed(evt);
+            }
+        });
 
-        RestarIntegrador.setText("-");
+        AgregarDLCBTN.setText("+");
+        AgregarDLCBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarDLCBTNActionPerformed(evt);
+            }
+        });
+
+        RestarNivelesBTN.setText("-");
+
+        RestarLogicaBTN.setText("-");
+
+        RestarDLCBTN.setText("-");
+
+        RestarIntegradorBTN.setText("-");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,45 +158,44 @@ public class InterfazCompany extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelDevelop)
+                    .addComponent(LogicaLabel)
+                    .addComponent(DLCLabel)
+                    .addComponent(IntegradorLabel)
+                    .addComponent(NivelLabel)
+                    .addComponent(narrativaLabel))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(EntradaNarrativa, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(EntradaNiveles)
+                    .addComponent(EntradaLogica)
+                    .addComponent(EntradaDLC)
+                    .addComponent(EntradaIntegrador))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LogicaLabel)
-                            .addComponent(DLCLabel)
-                            .addComponent(IntegradorLabel)
-                            .addComponent(NivelLabel)
-                            .addComponent(narrativaLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(EntradaNarrativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(agregarNarrativa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(EntradaNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AgregarNiveles, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(EntradaIntegrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(AgregarIntegrador, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(EntradaLogica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(EntradaDLC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AgregarLogica, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AgregarDLC, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(QuitarNarrativa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RestarNiveles, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RestarIntegrador, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(RestarLogica, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(RestarDLC, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 929, Short.MAX_VALUE))
+                        .addComponent(agregarNarrativaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(QuitarNarrativaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(AgregarNivelesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RestarNivelesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(AgregarLogicaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RestarLogicaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(AgregarDLCBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RestarDLCBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(AgregarIntegradorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RestarIntegradorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(935, 935, 935))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(LabelDevelop)
+                .addGap(941, 941, 941))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,53 +203,49 @@ public class InterfazCompany extends javax.swing.JFrame {
                 .addGap(109, 109, 109)
                 .addComponent(LabelDevelop, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(narrativaLabel)
-                            .addComponent(EntradaNarrativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(agregarNarrativa)
-                            .addComponent(QuitarNarrativa))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NivelLabel)
-                            .addComponent(EntradaNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(narrativaLabel)
+                    .addComponent(EntradaNarrativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(agregarNarrativaBTN)
+                    .addComponent(QuitarNarrativaBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(AgregarNiveles)
-                        .addComponent(RestarNiveles)))
+                        .addComponent(NivelLabel)
+                        .addComponent(EntradaNiveles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(RestarNivelesBTN)
+                        .addComponent(AgregarNivelesBTN)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LogicaLabel)
                     .addComponent(EntradaLogica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AgregarLogica)
-                    .addComponent(RestarLogica))
+                    .addComponent(RestarLogicaBTN)
+                    .addComponent(AgregarLogicaBTN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DLCLabel)
                     .addComponent(EntradaDLC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AgregarDLC)
-                    .addComponent(RestarDLC))
+                    .addComponent(AgregarDLCBTN)
+                    .addComponent(RestarDLCBTN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IntegradorLabel)
                     .addComponent(EntradaIntegrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AgregarIntegrador)
-                    .addComponent(RestarIntegrador))
-                .addContainerGap(399, Short.MAX_VALUE))
+                    .addComponent(AgregarIntegradorBTN)
+                    .addComponent(RestarIntegradorBTN))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -219,15 +254,86 @@ public class InterfazCompany extends javax.swing.JFrame {
     private void EntradaNarrativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNarrativaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EntradaNarrativaActionPerformed
-
-    private void agregarNarrativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNarrativaActionPerformed
+    int contadorNarrativa=0;
+    int contadorNiveles=0;
+    int contadorSprites=0;
+    int contadorLogica=0;
+    int contadorDLC=0;
+    int contadorIntegrador=0; 
+    //int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
+    
+    private void agregarNarrativaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNarrativaBTNActionPerformed
         // TODO add your handling code here:
-    String valorTexto = EntradaNarrativa.getText();
-    int valorActual = Integer.parseInt(valorTexto);
+        
+  contadorNarrativa++;
+    int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
+    if(totalsuma<=13){
+        
+    EntradaNarrativa.setText(String.valueOf(contadorNarrativa));}
+    else{
+    
+    }
 
+    
+   
+
+    
     // Verificar si la suma total supera el límite de 13
     //int sumaTotal = valorActual + valorCuadro2 + valorCuadro3 + valorCuadro4 + valorCuadro5 + 1;
-    }//GEN-LAST:event_agregarNarrativaActionPerformed
+    }//GEN-LAST:event_agregarNarrativaBTNActionPerformed
+
+    private void EntradaLogicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaLogicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaLogicaActionPerformed
+
+    private void AgregarNivelesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarNivelesBTNActionPerformed
+        // TODO add your handling code here:
+        
+    contadorNiveles++;
+    int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
+    if(totalsuma<=13){EntradaNiveles.setText(String.valueOf(contadorNiveles));}
+        
+    }//GEN-LAST:event_AgregarNivelesBTNActionPerformed
+
+    private void AgregarLogicaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarLogicaBTNActionPerformed
+        // TODO add your handling code here:
+        
+    contadorLogica++;
+    int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
+    if(totalsuma<=13){EntradaLogica.setText(String.valueOf(contadorLogica));}
+    
+    }//GEN-LAST:event_AgregarLogicaBTNActionPerformed
+
+    private void AgregarDLCBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDLCBTNActionPerformed
+        // TODO add your handling code here:
+    contadorDLC++;
+    int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
+    if(totalsuma<=13){EntradaDLC.setText(String.valueOf(contadorDLC));}
+    
+        
+    }//GEN-LAST:event_AgregarDLCBTNActionPerformed
+
+    private void AgregarIntegradorBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarIntegradorBTNActionPerformed
+        // TODO add your handling code here:
+        
+    contadorIntegrador++;
+    int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
+    if(totalsuma<=13){EntradaIntegrador.setText(String.valueOf(contadorIntegrador));}
+            
+        
+    }//GEN-LAST:event_AgregarIntegradorBTNActionPerformed
+
+    private void EntradaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNivelesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaNivelesActionPerformed
+
+    private void EntradaDLCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaDLCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaDLCActionPerformed
+
+    private void EntradaIntegradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaIntegradorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaIntegradorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,29 +371,33 @@ public class InterfazCompany extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarDLC;
-    private javax.swing.JButton AgregarIntegrador;
-    private javax.swing.JButton AgregarLogica;
-    private javax.swing.JButton AgregarNiveles;
+    private javax.swing.JButton AgregarDLCBTN;
+    private javax.swing.JButton AgregarIntegradorBTN;
+    private javax.swing.JButton AgregarLogicaBTN;
+    private javax.swing.JButton AgregarNivelesBTN;
     private javax.swing.JLabel DLCLabel;
     private javax.swing.JTextField EntradaDLC;
     private javax.swing.JTextField EntradaIntegrador;
     private javax.swing.JTextField EntradaLogica;
     private javax.swing.JTextField EntradaNarrativa;
-    private javax.swing.JTextField EntradaNivel;
+    private javax.swing.JTextField EntradaNiveles;
     private javax.swing.JLabel IntegradorLabel;
     private javax.swing.JLabel LabelDevelop;
     private javax.swing.JLabel LogicaLabel;
     private javax.swing.JLabel NivelLabel;
-    private javax.swing.JButton QuitarNarrativa;
-    private javax.swing.JButton RestarDLC;
-    private javax.swing.JButton RestarIntegrador;
-    private javax.swing.JButton RestarLogica;
-    private javax.swing.JButton RestarNiveles;
-    private javax.swing.JButton agregarNarrativa;
+    private javax.swing.JButton QuitarNarrativaBTN;
+    private javax.swing.JButton RestarDLCBTN;
+    private javax.swing.JButton RestarIntegradorBTN;
+    private javax.swing.JButton RestarLogicaBTN;
+    private javax.swing.JButton RestarNivelesBTN;
+    private javax.swing.JButton agregarNarrativaBTN;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel narrativaLabel;
     // End of variables declaration//GEN-END:variables
+
+    private int parseToString(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

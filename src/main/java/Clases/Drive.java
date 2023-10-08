@@ -18,8 +18,9 @@ public class Drive {
     private int DLC; 
     private int games;
     private int gamesDLC;
+    private int[] conditions;
     
-    public Drive(int narrative, int levels, int sprites, int logic, int DLC, int games, int gamesDLC){
+    public Drive(int narrative, int levels, int sprites, int logic, int DLC, int games, int gamesDLC, int[] conditions){
         this.narrative = narrative;
         this.levels = levels;
         this.sprites = sprites;
@@ -27,6 +28,7 @@ public class Drive {
         this.DLC = DLC ;
         this.games = games ;
         this.gamesDLC = gamesDLC ;
+        this.conditions = conditions ;
     }
     
     public int getNarrative(){
@@ -60,12 +62,12 @@ public class Drive {
         this.DLC=DLC;
     }
     
-    public int getGame(){
+    public int getGames(){
         return games; 
     }
     
-    public void setGame(int game){
-        this.games=game;
+    public void setGames(int games){
+        this.games=games;
     }
     
     /**
@@ -123,9 +125,9 @@ public class Drive {
         }
         else if (type==5){ //Integrador 
             
-            if(getNarrative()>1 && getLevels()>1 && getSprites()>1 && getLogic()> 1 && getDLC()>1 ){
-                int juegosSinDLC = 0;
-                if(getGame()%3==0 && juegosSinDLC<3){
+            if(getNarrative()>=conditions[0] && getLevels()>=conditions[1] && getSprites()>=conditions[2] && getLogic()>=conditions[3]){
+                
+                if(getGames()%conditions[4]==0 && getGamesDLC()<(getGames()/conditions[4]) && getDLC()>=conditions[5] ){
                     setGamesDLC(getGamesDLC()+productCanti);
                     RestarProducto(0);
                    
@@ -133,14 +135,11 @@ public class Drive {
                 }
                 else{
                 
-                setGame(getGame()+productCanti);
+                setGames(getGames()+productCanti);
                 RestarProducto(1);
                 System.out.println("SE CREO UN JUEGO");
-                juegosSinDLC++;
                 }
-                if(juegosSinDLC==3){
-                juegosSinDLC=0;
-                }
+                
                 
 
             }
@@ -152,16 +151,17 @@ public class Drive {
     
     public int RestarProducto( int t){
     
-     if (t==1){    setNarrative(getNarrative() - 1);
-    setLevels(getLevels()-1);
-    setSprites(getSprites()-1);
-    setLogic(getLogic()-1);} 
+     if (t==1){    
+    setNarrative(getNarrative() - conditions[0]);
+    setLevels(getLevels()-conditions[1]);
+    setSprites(getSprites()-conditions[2]);
+    setLogic(getLogic()-conditions[3]);} 
      else{    
-    setNarrative(getNarrative() - 1);
-    setLevels(getLevels()-1);
-    setSprites(getSprites()-1);
-    setLogic(getLogic()-1);
-    setDLC(getDLC()-1);}
+    setNarrative(getNarrative() - conditions[0]);
+    setLevels(getLevels()-conditions[1]);
+    setSprites(getSprites()-conditions[2]);
+    setLogic(getLogic()-conditions[3]);
+    setDLC(getDLC()-conditions[5]);}
         return 0;
 
     }
