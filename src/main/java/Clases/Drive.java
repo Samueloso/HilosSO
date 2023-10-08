@@ -60,13 +60,14 @@ public class Drive {
         this.DLC=DLC;
     }
     
-    public int getGames(){
+    public int getGame(){
         return games; 
     }
     
-    public void setGames(int games){
-        this.games=games;
+    public void setGame(int game){
+        this.games=game;
     }
+    
     /**
      * @return the gamesDLC
      */
@@ -80,40 +81,87 @@ public class Drive {
     public void setGamesDLC(int gamesDLC) {
         this.gamesDLC = gamesDLC;
     }
+            
 
     public void addProduct(int productCanti, int type){
         
-        if(type==0){
+        if(type==0){ //narrativa
             int numero=getNarrative();
-            if (numero<12){
+            if (numero<25){
                 setNarrative(getNarrative() + productCanti);
             }
             else{setNarrative(getNarrative());}
             
         }
-        else if (type==1){
-            setLevels(getLevels()+productCanti);
+        else if (type==1){ //niveles
+            
+            int niveles=getLevels();
+            if(niveles<20){setLevels(getLevels()+productCanti);}
+            else{setLevels(getLevels());}
+            
         }
-        else if (type==2){
-            setSprites(getSprites()+productCanti);
+        else if (type==2){ //Sprites
+            int esprai=getSprites();
+            if(esprai<55){setSprites(getSprites()+productCanti);}
+            else{setSprites(getSprites());}
+            
         }
-        else if (type==3){
+        
+        
+        else if (type==3){ //Logica
+            int logica = getLogic();
+            if (logica < 35){
             setLogic(getLogic()+productCanti);
-        }
-        else if (type==4){
-            setDLC(getDLC()+productCanti);
-        }
-        else if (type==5){
-            
-            setDLC(getDLC()+productCanti);
+            }
+            else{setLogic(getLogic());}
             
         }
-        else if (type==6){
-            if (getNarrative()>0 && getLevels()>0 && getSprites()>0 && getLogic()>0 ){
-                setGames(getGames()+productCanti);
+        else if (type==4){ //DLC developer
+            int delece= getDLC();
+            if (delece < 10){ setDLC(getDLC()+productCanti);}
+            else{setDLC(getDLC());}
         }
+        else if (type==5){ //Integrador 
+            
+            if(getNarrative()>1 && getLevels()>1 && getSprites()>1 && getLogic()> 1 && getDLC()>1 ){
+                
+                if(getGame()%4==0){
+                    setGame(getGame()+productCanti);
+                    RestarProducto(0);
+                   
+                    System.out.println("SE CREO UN JUEGO CON DLC :000"+ productCanti);
+                }
+                else{
+                
+                setGame(getGame()+productCanti);
+                RestarProducto(1);
+                System.out.println("SE CREO UN JUEGO");
+                }
+
+            }
+
+        }
+        
     
-    }         
+    }
+    
+    public int RestarProducto( int t){
+    
+     if (t==1){    setNarrative(getNarrative() - 1);
+    setLevels(getLevels()-1);
+    setSprites(getSprites()-1);
+    setLogic(getLogic()-1);} 
+     else{    
+    setNarrative(getNarrative() - 1);
+    setLevels(getLevels()-1);
+    setSprites(getSprites()-1);
+    setLogic(getLogic()-1);
+    setDLC(getDLC()-1);}
+        return 0;
+
+    }
+
+
     
 }
 }
