@@ -21,7 +21,7 @@ public class Developers extends Thread {
     private float productPerDay;
     private Drive drive;
     private int init;
-    Semaphore sema;
+    private Semaphore sema;
 
     public Developers(int type, int dd, float pp, Drive drive, Semaphore sem, int init) {
         this.type = type;
@@ -49,16 +49,16 @@ public class Developers extends Thread {
 
     public void Work() {
 
-        this.cumulo += this.productPerDay * this.init;
+        cumulo += productPerDay * getInit();
 
-        if (this.cumulo >= 1) {
+        if (cumulo >= 1) {
             try {
-                float temp = this.cumulo % 1;
-                int integer = (int) (this.cumulo - temp);
-                this.sema.acquire(1);
-                this.drive.addProduct(integer, type);
-                this.cumulo = temp;
-                this.sema.release();
+                float temp = cumulo % 1;
+                int integer = (int) (cumulo - temp);
+                sema.acquire(1);
+                drive.addProduct(integer, type);
+                cumulo = temp;
+                sema.release();
 
             } catch (InterruptedException ex) {
                 Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,8 +66,22 @@ public class Developers extends Thread {
 
         }
 
-        System.out.println(this.drive.getNarrative() + "----" + this.drive.getLevels() + "--" + this.drive.getLogic() + "--" + this.drive.getSprites() + "--" + this.drive.getDLC() + "***" + this.drive.getGames() + "***" + this.drive.getGamesDLC());
+        System.out.println(drive.getNarrative() + "----" + drive.getLevels() + "--" + drive.getSprites() + "--" + drive.getLogic() + "--" + drive.getDLC() + "***" + drive.getGames() + "***" + drive.getGamesDLC());
 
+    }
+
+    /**
+     * @return the init
+     */
+    public int getInit() {
+        return init;
+    }
+
+    /**
+     * @param init the init to set
+     */
+    public void setInit(int init) {
+        this.init = init;
     }
 
 }

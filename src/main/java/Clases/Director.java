@@ -13,61 +13,48 @@ import java.util.logging.Logger;
  *
  * @author samue
  */
-public class Developers extends Thread {
-
-    private int type;
+public class Director extends Thread {
     private int dayDuration;
-    private float cumulo = 0;
-    private float productPerDay;
+    private int deadline;
+    private int stonks;
+    private int stonksDLC;
     private Drive drive;
-    private int init;
-    Semaphore sema;
+    private Semaphore sema;
 
-    public Developers(int type, int dd, float pp, Drive drive, Semaphore sem, int init) {
-        this.type = type;
+    public Director(int dd, int dl, int s, int sd, Drive drive, Semaphore sem) {
         this.dayDuration = dd;
-        this.productPerDay = pp;
+        this.deadline = dl;
+        this.stonks = s;
+        this.stonksDLC = sd;
         this.drive = drive;
         this.sema = sem;
-        this.init = init;
     }
 
     @Override
     public void run() {
         while (true) {
-            try {
-
                 Work();
-                sleep(dayDuration);
-
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
-
     }
 
     public void Work() {
-
-        this.cumulo += this.productPerDay * this.init;
-
-        if (this.cumulo >= 1) {
+        if (deadline == 0) {
             try {
-                float temp = this.cumulo % 1;
-                int integer = (int) (this.cumulo - temp);
-                this.sema.acquire(1);
-                this.drive.addProduct(integer, type);
-                this.cumulo = temp;
-                this.sema.release();
+                sleep(dayDuration-10);
+                sema.acquire(1);
+                int[] Tstonks = drive.ResetDeadline(stonks, stonksDLC);
+                int Nstonks = Tstonks[0] + Tstonks[1];
+                sema.release();
 
             } catch (InterruptedException ex) {
-                Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+        } else {
+            
         }
 
-        System.out.println(this.drive.getNarrative() + "----" + this.drive.getLevels() + "--" + this.drive.getLogic() + "--" + this.drive.getSprites() + "--" + this.drive.getDLC() + "***" + this.drive.getGames() + "***" + this.drive.getGamesDLC());
+        System.out.println(drive.getNarrative() + "----" + drive.getLevels() + "--" + drive.getSprites() + "--" + drive.getLogic() + "--" + drive.getDLC() + "***" + drive.getGames() + "***" + drive.getGamesDLC());
 
     }
-
 }

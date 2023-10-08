@@ -103,7 +103,7 @@ public class Drive {
                 if (sum <= 25) {
                     setNarrative(sum);
                 } else {
-                    if (narrativa <= 25) {
+                    if (narrativa < 25) {
                         int temp = sum - 25;
                         setNarrative(narrativa + temp);
                     } else {
@@ -119,7 +119,7 @@ public class Drive {
                 if (sum <= 20) {
                     setLevels(sum);
                 } else {
-                    if (niveles <= 20) {
+                    if (niveles < 20) {
                         int temp = sum - 20;
                         setLevels(niveles + temp);
                     } else {
@@ -134,7 +134,7 @@ public class Drive {
                 if (sum <= 55) {
                     setSprites(sum);
                 } else {
-                    if (esprai <= 55) {
+                    if (esprai < 55) {
                         int temp = sum - 55;
                         setSprites(esprai + temp);
                     } else {
@@ -149,7 +149,7 @@ public class Drive {
                 if (sum <= 35) {
                     setLogic(sum);
                 } else {
-                    if (logica <= 35) {
+                    if (logica < 35) {
                         int temp = sum - 35;
                         setLogic(logica + temp);
                     } else {
@@ -164,7 +164,7 @@ public class Drive {
                 if (sum <= 10) {
                     setDLC(sum);
                 } else {
-                    if (delece <= 10) {
+                    if (delece < 10) {
                         int temp = sum - 10;
                         setDLC(delece + temp);
                     } else {
@@ -191,7 +191,7 @@ public class Drive {
         }
     }
 
-    public int RestarProducto(int t) {
+    public void RestarProducto(int t) {
 
         if (t == 1) {
             setNarrative(getNarrative() - conditions[0]);
@@ -205,6 +205,8 @@ public class Drive {
             setLogic(getLogic() - conditions[3]);
             setDLC(getDLC() - conditions[5]);
         }
-        return 0;
     }
+    
+    
+    
 }
