@@ -14,68 +14,74 @@ import java.util.logging.Logger;
  * @author samue
  */
 public class Developers extends Thread {
+
     private int type;
-    private int dayDuration = 1000;
+    private int dayDuration;
     private float cumulo = 0;
     private float productPerDay;
     private Drive drive;
-    Semaphore sema; 
-    
-    public Developers(int type, int dd, float pp, Drive drive, Semaphore sem){
-        this.type=type;
-        this.productPerDay=pp;
-        this.drive=drive;
-        this.sema=sem;
-        
+    private int init;
+    private Semaphore sema;
+
+    public Developers(int type, int dd, float pp, Drive drive, Semaphore sem, int init) {
+        this.type = type;
+        this.dayDuration = dd;
+        this.productPerDay = pp;
+        this.drive = drive;
+        this.sema = sem;
+        this.init = init;
     }
 
-
-   
-    @Override 
-    public void run(){
-       while(true){
-        try {
-            
-            
-            Work();
-            sleep(dayDuration);
-            
-            
-            
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       }
-
-} 
-    public void Work(){
-    
-        this.cumulo += this.productPerDay;
-        
-        if (this.cumulo >= 1){
+    @Override
+    public void run() {
+        while (true) {
             try {
-                
-              this.sema.acquire(1);
-               this.drive.addProduct( 1, type);
-                this.cumulo = 0;
-                this.sema.release();
-                
-                
-                
+
+                Work();
+                sleep(dayDuration);
+
             } catch (InterruptedException ex) {
                 Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            
-            
         }
-        
-        System.out.println(this.drive.getNarrative()+"----"+this.drive.getLevels()+"--"+this.drive.getLogic()+"--"+this.drive.getSprites()+"--"+this.drive.getDLC()+"***"+this.drive.getGames()+"***"+this.drive.getGamesDLC());
-        
-    
+
     }
-   
-        
+
+    public void Work() {
+
+        cumulo += productPerDay * getInit();
+
+        if (cumulo >= 1) {
+            try {
+                float temp = cumulo % 1;
+                int integer = (int) (cumulo - temp);
+                sema.acquire(1);
+                drive.addProduct(integer, type);
+                cumulo = temp;
+                sema.release();
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        System.out.println(drive.getNarrative() + "----" + drive.getLevels() + "--" + drive.getSprites() + "--" + drive.getLogic() + "--" + drive.getDLC() + "***" + drive.getGames() + "***" + drive.getGamesDLC());
+
+    }
+
+    /**
+     * @return the init
+     */
+    public int getInit() {
+        return init;
+    }
+
+    /**
+     * @param init the init to set
+     */
+    public void setInit(int init) {
+        this.init = init;
+    }
+
 }
-
-

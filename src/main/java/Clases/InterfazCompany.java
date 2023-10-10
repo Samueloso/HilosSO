@@ -5,12 +5,16 @@
  */
 package Clases;
 
+
+
 /**
  *
  * @author samue
  */
 public class InterfazCompany extends javax.swing.JFrame {
-
+    
+    private Drive drive;
+    
     /**
      * Creates new form InterfazCompany
      */
@@ -51,6 +55,14 @@ public class InterfazCompany extends javax.swing.JFrame {
         RestarLogicaBTN = new javax.swing.JButton();
         RestarDLCBTN = new javax.swing.JButton();
         RestarIntegradorBTN = new javax.swing.JButton();
+        CargarDatos = new javax.swing.JButton();
+        NarrativaPLabels = new javax.swing.JLabel();
+        NivelesPLabels = new javax.swing.JLabel();
+        LogicaPLabel = new javax.swing.JLabel();
+        DLCPLabels = new javax.swing.JLabel();
+        JuegosLabel = new javax.swing.JLabel();
+        LABELE = new javax.swing.JLabel();
+        Narrativaproduc = new javax.swing.JTextField();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -152,62 +164,114 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         RestarIntegradorBTN.setText("-");
 
+        CargarDatos.setText("Cargar Datos");
+        CargarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargarDatosActionPerformed(evt);
+            }
+        });
+
+        NarrativaPLabels.setText("Narrativa Producida");
+
+        NivelesPLabels.setText("Niveles Producidos");
+
+        LogicaPLabel.setText("Logicas Producidas");
+
+        DLCPLabels.setText("DLC Producidos");
+
+        JuegosLabel.setText("Juegos Producidos");
+
+        Narrativaproduc.setText("jTextField1");
+        Narrativaproduc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NarrativaproducActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LogicaLabel)
-                    .addComponent(DLCLabel)
-                    .addComponent(IntegradorLabel)
-                    .addComponent(NivelLabel)
-                    .addComponent(narrativaLabel))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EntradaNarrativa, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(EntradaNiveles)
-                    .addComponent(EntradaLogica)
-                    .addComponent(EntradaDLC)
-                    .addComponent(EntradaIntegrador))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(agregarNarrativaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(QuitarNarrativaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LogicaLabel)
+                            .addComponent(DLCLabel)
+                            .addComponent(IntegradorLabel)
+                            .addComponent(NivelLabel)
+                            .addComponent(narrativaLabel))
+                        .addGap(18, 22, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(EntradaNarrativa, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(EntradaNiveles)
+                            .addComponent(EntradaLogica)
+                            .addComponent(EntradaDLC)
+                            .addComponent(EntradaIntegrador))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(agregarNarrativaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(QuitarNarrativaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(AgregarNivelesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RestarNivelesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(AgregarLogicaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RestarLogicaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(AgregarDLCBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RestarDLCBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(AgregarIntegradorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RestarIntegradorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AgregarNivelesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RestarNivelesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelDevelop)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogicaPLabel)
+                    .addComponent(DLCPLabels)
+                    .addComponent(JuegosLabel)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AgregarLogicaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RestarLogicaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(NivelesPLabels)
+                        .addGap(258, 258, 258)
+                        .addComponent(LABELE, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AgregarDLCBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RestarDLCBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AgregarIntegradorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RestarIntegradorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(935, 935, 935))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(LabelDevelop)
-                .addGap(941, 941, 941))
+                        .addComponent(NarrativaPLabels)
+                        .addGap(18, 18, 18)
+                        .addComponent(Narrativaproduc, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(744, 744, 744))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(LabelDevelop, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(narrativaLabel)
-                    .addComponent(EntradaNarrativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agregarNarrativaBTN)
-                    .addComponent(QuitarNarrativaBTN))
+                .addGap(112, 112, 112)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LabelDevelop, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LABELE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(narrativaLabel)
+                            .addComponent(EntradaNarrativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(agregarNarrativaBTN)
+                            .addComponent(QuitarNarrativaBTN)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NarrativaPLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Narrativaproduc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -215,26 +279,33 @@ public class InterfazCompany extends javax.swing.JFrame {
                         .addComponent(EntradaNiveles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(RestarNivelesBTN)
-                        .addComponent(AgregarNivelesBTN)))
+                        .addComponent(AgregarNivelesBTN)
+                        .addComponent(NivelesPLabels)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LogicaLabel)
-                    .addComponent(EntradaLogica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RestarLogicaBTN)
-                    .addComponent(AgregarLogicaBTN))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LogicaLabel)
+                        .addComponent(EntradaLogica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AgregarLogicaBTN)
+                        .addComponent(LogicaPLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DLCLabel)
                     .addComponent(EntradaDLC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AgregarDLCBTN)
-                    .addComponent(RestarDLCBTN))
+                    .addComponent(RestarDLCBTN)
+                    .addComponent(DLCPLabels))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IntegradorLabel)
                     .addComponent(EntradaIntegrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AgregarIntegradorBTN)
-                    .addComponent(RestarIntegradorBTN))
-                .addContainerGap(421, Short.MAX_VALUE))
+                    .addComponent(RestarIntegradorBTN)
+                    .addComponent(JuegosLabel))
+                .addGap(18, 18, 18)
+                .addComponent(CargarDatos)
+                .addContainerGap(377, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,6 +333,15 @@ public class InterfazCompany extends javax.swing.JFrame {
     int contadorIntegrador=0; 
     //int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
     
+
+    public void setContadorNiveles(int contadorNiveles) {
+        this.contadorNiveles = contadorNiveles;
+    }
+
+    public int getContadorNiveles() {
+        return contadorNiveles;
+    }
+    
     private void agregarNarrativaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNarrativaBTNActionPerformed
         // TODO add your handling code here:
         
@@ -269,7 +349,11 @@ public class InterfazCompany extends javax.swing.JFrame {
     int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
     if(totalsuma<=13){
         
-    EntradaNarrativa.setText(String.valueOf(contadorNarrativa));}
+    EntradaNarrativa.setText(String.valueOf(contadorNarrativa));
+    
+   
+    
+    }
     else{
     
     }
@@ -335,6 +419,25 @@ public class InterfazCompany extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EntradaIntegradorActionPerformed
 
+    private void CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarDatosActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_CargarDatosActionPerformed
+
+    private void NarrativaproducActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NarrativaproducActionPerformed
+        // TODO add your handling code here:
+     
+       int numero  = drive.getNarrative();
+       String letra = Narrativaproduc.getText();
+       Narrativaproduc.setText(String.valueOf(letra+numero));
+        
+        
+    }//GEN-LAST:event_NarrativaproducActionPerformed
+int t= 12 ;
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -375,16 +478,24 @@ public class InterfazCompany extends javax.swing.JFrame {
     private javax.swing.JButton AgregarIntegradorBTN;
     private javax.swing.JButton AgregarLogicaBTN;
     private javax.swing.JButton AgregarNivelesBTN;
+    private javax.swing.JButton CargarDatos;
     private javax.swing.JLabel DLCLabel;
+    private javax.swing.JLabel DLCPLabels;
     private javax.swing.JTextField EntradaDLC;
     private javax.swing.JTextField EntradaIntegrador;
     private javax.swing.JTextField EntradaLogica;
     private javax.swing.JTextField EntradaNarrativa;
     private javax.swing.JTextField EntradaNiveles;
     private javax.swing.JLabel IntegradorLabel;
+    private javax.swing.JLabel JuegosLabel;
+    private javax.swing.JLabel LABELE;
     private javax.swing.JLabel LabelDevelop;
     private javax.swing.JLabel LogicaLabel;
+    private javax.swing.JLabel LogicaPLabel;
+    private javax.swing.JLabel NarrativaPLabels;
+    private javax.swing.JTextField Narrativaproduc;
     private javax.swing.JLabel NivelLabel;
+    private javax.swing.JLabel NivelesPLabels;
     private javax.swing.JButton QuitarNarrativaBTN;
     private javax.swing.JButton RestarDLCBTN;
     private javax.swing.JButton RestarIntegradorBTN;
@@ -397,7 +508,4 @@ public class InterfazCompany extends javax.swing.JFrame {
     private javax.swing.JLabel narrativaLabel;
     // End of variables declaration//GEN-END:variables
 
-    private int parseToString(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

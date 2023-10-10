@@ -52,69 +52,109 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="LogicaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="DLCLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="IntegradorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="NivelLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="narrativaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="LogicaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="DLCLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="IntegradorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="NivelLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="narrativaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" pref="22" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="EntradaNarrativa" pref="100" max="32767" attributes="0"/>
+                              <Component id="EntradaNiveles" alignment="0" max="32767" attributes="0"/>
+                              <Component id="EntradaLogica" alignment="0" max="32767" attributes="0"/>
+                              <Component id="EntradaDLC" alignment="0" max="32767" attributes="0"/>
+                              <Component id="EntradaIntegrador" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="agregarNarrativaBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="QuitarNarrativaBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="AgregarNivelesBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="RestarNivelesBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="AgregarLogicaBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="RestarLogicaBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="AgregarDLCBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="RestarDLCBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="AgregarIntegradorBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="RestarIntegradorBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="LabelDevelop" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                  <Component id="CargarDatos" min="-2" pref="123" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="EntradaNarrativa" pref="100" max="32767" attributes="0"/>
-                      <Component id="EntradaNiveles" alignment="0" max="32767" attributes="0"/>
-                      <Component id="EntradaLogica" alignment="0" max="32767" attributes="0"/>
-                      <Component id="EntradaDLC" alignment="0" max="32767" attributes="0"/>
-                      <Component id="EntradaIntegrador" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="agregarNarrativaBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="QuitarNarrativaBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="LogicaPLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="DLCPLabels" min="-2" max="-2" attributes="0"/>
+                      <Component id="JuegosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="NivelesPLabels" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
+                          <Component id="LABELE" min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="AgregarNivelesBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="RestarNivelesBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="AgregarLogicaBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="RestarLogicaBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="AgregarDLCBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="RestarDLCBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="AgregarIntegradorBTN" min="-2" pref="21" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="RestarIntegradorBTN" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="NarrativaPLabels" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="Narrativaproduc" min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="935" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Component id="LabelDevelop" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="941" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="744" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                  <Component id="LabelDevelop" min="-2" pref="29" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="narrativaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="EntradaNarrativa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="agregarNarrativaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="QuitarNarrativaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="LabelDevelop" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="LABELE" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="narrativaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="EntradaNarrativa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="agregarNarrativaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="QuitarNarrativaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="NarrativaPLabels" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="Narrativaproduc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -125,14 +165,18 @@
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="RestarNivelesBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="AgregarNivelesBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NivelesPLabels" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="LogicaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="EntradaLogica" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="RestarLogicaBTN" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="AgregarLogicaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LogicaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="EntradaLogica" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AgregarLogicaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LogicaPLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -140,6 +184,7 @@
                       <Component id="EntradaDLC" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="AgregarDLCBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RestarDLCBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="DLCPLabels" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -147,8 +192,11 @@
                       <Component id="EntradaIntegrador" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="AgregarIntegradorBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RestarIntegradorBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JuegosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="421" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="CargarDatos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="377" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -288,6 +336,49 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="CargarDatos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cargar Datos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CargarDatosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="NarrativaPLabels">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Narrativa Producida"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="NivelesPLabels">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Niveles Producidos"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LogicaPLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Logicas Producidas"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="DLCPLabels">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="DLC Producidos"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="JuegosLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Juegos Producidos"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LABELE">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Narrativaproduc">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NarrativaproducActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
