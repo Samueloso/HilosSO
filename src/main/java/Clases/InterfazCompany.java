@@ -5,6 +5,12 @@
  */
 package Clases;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 
 
 /**
@@ -1225,8 +1231,57 @@ public class InterfazCompany extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EntradaNarrativaSEActionPerformed
 
+    public void CargarTXT(int[] arreglo, String nombreArchivo) {
+        try {
+            try (FileWriter writer = new FileWriter(nombreArchivo)) {
+                for (int i = 0; i < arreglo.length; i++) {
+                    writer.write(String.valueOf(arreglo[i]));
+                    if (i != arreglo.length - 1) {
+                        writer.write(" ");
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al guardar el arreglo en el archivo.");
+        }
+    }
+        public static int[] ReadFileTXT(String nombreArchivo) {
+        int[] arreglo = null;
+
+        try {
+            File archivo = new File(nombreArchivo);
+            Scanner scanner = new Scanner(archivo);
+
+            String linea = scanner.nextLine();
+            String[] elementos = linea.split(" ");
+            arreglo = new int[elementos.length];
+
+            for (int i = 0; i < elementos.length; i++) {
+                arreglo[i] = Integer.parseInt(elementos[i]);
+            }
+
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo no existe.");
+            e.printStackTrace();
+        }
+
+        return arreglo;
+    }
+
+    
+    
     private void CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarDatosActionPerformed
         // TODO add your handling code here:
+    
+    int[] cutom1={contadorNarrativa,contadorNiveles,contadorSprites,contadorLogica,contadorDLC,contadorIntegrador};
+    int[] cutom2={contadorNarrativaSE,contadorNivelesSE,contadorSpritesSE,contadorLogicaSE,contadorDLCSE,contadorIntegradorSE};
+    CargarTXT(cutom1,"CapcomCompany.txt");
+    CargarTXT(cutom2,"SquareEnixCompany.txt");
+    
+    
+    
+        
     }//GEN-LAST:event_CargarDatosActionPerformed
 
     private void RestarDLCBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarDLCBTNActionPerformed
@@ -1576,6 +1631,11 @@ public class InterfazCompany extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(InterfazCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        
+
+
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

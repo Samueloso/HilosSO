@@ -38,7 +38,7 @@ public class Developers extends Thread {
     public void run() {
         while (true) {
             try {
-
+                
                 Work();
                 sleep(dayDuration);
 
