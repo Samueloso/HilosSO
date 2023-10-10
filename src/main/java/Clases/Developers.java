@@ -17,20 +17,21 @@ public class Developers extends Thread {
 
     private int type;
     private int dayDuration;
+    private int sueldo;
     private float cumulo = 0;
     private float productPerDay;
     private Drive drive;
-    private int init;
     private Semaphore sema;
-    javax.swing.JTextField Narrativaproduc;
+    private Company comp;
 
-    public Developers(int type, int dd, float pp, Drive drive, Semaphore sem, int init) {
+    public Developers(int type, int dd, int s, float pp, Drive drive, Semaphore sem, Company comp) {
         this.type = type;
         this.dayDuration = dd;
+        this.sueldo = s;
         this.productPerDay = pp;
         this.drive = drive;
         this.sema = sem;
-        this.init = init;
+        this.comp = comp;
     }
 
     @Override
@@ -49,8 +50,8 @@ public class Developers extends Thread {
     }
 
     public void Work() {
-
-        cumulo += productPerDay * getInit();
+        int Nworkers = comp.getInits(type);
+        cumulo += productPerDay * Nworkers;
 
         if (cumulo >= 1) {
             try {
@@ -58,8 +59,8 @@ public class Developers extends Thread {
                 int integer = (int) (cumulo - temp);
                 sema.acquire(1);
                 drive.addProduct(integer, type);
-                Narrativaproduc.setText(String.valueOf(drive.getNarrative()));
                 cumulo = temp;
+                comp.UpdateCosts(sueldo * Nworkers * 24);
                 sema.release();
 
             } catch (InterruptedException ex) {
@@ -70,20 +71,6 @@ public class Developers extends Thread {
         
         System.out.println(drive.getNarrative() + "----" + drive.getLevels() + "--" + drive.getSprites() + "--" + drive.getLogic() + "--" + drive.getDLC() + "***" + drive.getGames() + "***" + drive.getGamesDLC());
 
-    }
-
-    /**
-     * @return the init
-     */
-    public int getInit() {
-        return init;
-    }
-
-    /**
-     * @param init the init to set
-     */
-    public void setInit(int init) {
-        this.init = init;
     }
 
 }

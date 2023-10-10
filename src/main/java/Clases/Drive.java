@@ -208,14 +208,14 @@ public class Drive {
             setDLC(getDLC() - conditions[5]);
         }
     }
-    
+
     public int[] ResetDeadline(int stonks, int stonksDLC) {
         int units = getGames();
         int dlcunits = getGamesDLC();
         setGames(0);
         setGamesDLC(0);
-        int[] Tstonks = {units*stonks*1000, dlcunits*stonksDLC*1000};
+        int[] Tstonks = {units * stonks * 1000, dlcunits * stonksDLC * 1000};
         return Tstonks;
     }
-    
+
 }
