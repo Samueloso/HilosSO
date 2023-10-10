@@ -13,48 +13,82 @@ import java.util.logging.Logger;
  *
  * @author samue
  */
-public class Director extends Thread {
+public class ProjectManager extends Thread {
     private int dayDuration;
-    private int deadline;
-    private int stonks;
-    private int stonksDLC;
-    private Drive drive;
+    private String status = "Trabajando";
     private Semaphore sema;
+    private Company comp;
 
-    public Director(int dd, int dl, int s, int sd, Drive drive, Semaphore sem) {
+    public ProjectManager(int dd, Semaphore sem, Company comp) {
         this.dayDuration = dd;
-        this.deadline = dl;
-        this.stonks = s;
-        this.stonksDLC = sd;
-        this.drive = drive;
         this.sema = sem;
+        this.comp = comp;
     }
 
     @Override
     public void run() {
         while (true) {
-                Work();
+            Work();
         }
     }
 
     public void Work() {
-        if (deadline == 0) {
-            try {
-                sleep(dayDuration-10);
-                sema.acquire(1);
-                int[] Tstonks = drive.ResetDeadline(stonks, stonksDLC);
-                int Nstonks = Tstonks[0] + Tstonks[1];
-                sema.release();
-
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            if (comp.getDeadline() == 0) {
+                int n = 24;
+                Routine1();
+                Routine2(n);
+            } else {
+                int n = 16;
+                Routine1();
+                Routine2(n);
+                setStatus("Cambiando el contador");
+                comp.setDeadline(comp.getDeadline() - 1);
+                sleep(dayDuration / 3);
             }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProjectManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-        } else {
-            
+    public void Routine1() {
+        try {
+            sema.acquire(1);
+            int sueldo = 24 * 20;
+            comp.UpdateCosts(sueldo);
+            sema.release();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProjectManager.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        System.out.println(drive.getNarrative() + "----" + drive.getLevels() + "--" + drive.getSprites() + "--" + drive.getLogic() + "--" + drive.getDLC() + "***" + drive.getGames() + "***" + drive.getGamesDLC());
+    }
+    
+    public void Routine2(int n) {
+        try {
+            for (int i = 0; i < n; i++) {
+                    setStatus("Trabajando");
+                    sleep(dayDuration / 48);
+                    setStatus("Viendo Streams");
+                    sleep(dayDuration / 48);
+                }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProjectManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }
