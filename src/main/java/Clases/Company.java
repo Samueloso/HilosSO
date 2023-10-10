@@ -56,6 +56,8 @@ public class Company {
         this.logic.start();
         this.dlc.start();
         this.integrator.start();
+        this.pm.start();
+        this.director.start();
     }
 
     public void UpdateProfit(int num) {
