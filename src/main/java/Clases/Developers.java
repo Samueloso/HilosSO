@@ -22,6 +22,7 @@ public class Developers extends Thread {
     private Drive drive;
     private int init;
     private Semaphore sema;
+    javax.swing.JTextField Narrativaproduc;
 
     public Developers(int type, int dd, float pp, Drive drive, Semaphore sem, int init) {
         this.type = type;
@@ -57,6 +58,7 @@ public class Developers extends Thread {
                 int integer = (int) (cumulo - temp);
                 sema.acquire(1);
                 drive.addProduct(integer, type);
+                Narrativaproduc.setText(String.valueOf(drive.getNarrative()));
                 cumulo = temp;
                 sema.release();
 
@@ -65,7 +67,7 @@ public class Developers extends Thread {
             }
 
         }
-
+        
         System.out.println(drive.getNarrative() + "----" + drive.getLevels() + "--" + drive.getSprites() + "--" + drive.getLogic() + "--" + drive.getDLC() + "***" + drive.getGames() + "***" + drive.getGamesDLC());
 
     }

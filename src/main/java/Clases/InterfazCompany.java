@@ -428,14 +428,10 @@ public class InterfazCompany extends javax.swing.JFrame {
 
     private void NarrativaproducActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NarrativaproducActionPerformed
         // TODO add your handling code here:
-     
-       int numero  = drive.getNarrative();
-       String letra = Narrativaproduc.getText();
-       Narrativaproduc.setText(String.valueOf(letra+numero));
         
         
     }//GEN-LAST:event_NarrativaproducActionPerformed
-int t= 12 ;
+
     
     
     /**

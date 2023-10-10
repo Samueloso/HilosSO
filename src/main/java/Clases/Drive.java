@@ -19,7 +19,9 @@ public class Drive {
     private int games;
     private int gamesDLC;
     private final int[] conditions;
-
+    
+    
+    
     public Drive(int narrative, int levels, int sprites, int logic, int DLC, int games, int gamesDLC, int[] conditions) {
         this.narrative = narrative;
         this.levels = levels;
