@@ -50,6 +50,7 @@ public class Developers extends Thread {
     }
 
     public void Work() {
+        
         int Nworkers = comp.getInits(type);
         cumulo += productPerDay * Nworkers;
 
