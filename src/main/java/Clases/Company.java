@@ -14,7 +14,7 @@ public class Company {
 
     private int dayduration;
     private int deadline;
-    private String name;
+    public String name;
     private int nworkers;
     private int[] sueldos = {10, 13, 20, 8, 17, 25};
     private Developers narrative;
@@ -31,8 +31,9 @@ public class Company {
     private int costs;
     private int profits;
     private int earnings;
+    private InterfazCompany IC;
 
-    public Company(int dd, int dl, String name, int Nw, float nl, float s, float l, float d, Drive drive, int[] inits, int[] stonks) {
+    public Company(int dd, int dl, String name, int Nw, float nl, float s, float l, float d, Drive drive, int[] inits, int[] stonks, InterfazCompany IC) {
         this.dayduration = dd;
         this.deadline = dl;
         this.name = name;
@@ -44,9 +45,10 @@ public class Company {
         this.logic = new Developers(3, dd, sueldos[3], l, drive, sem, this);
         this.dlc = new Developers(4, dd, sueldos[4], d, drive, sem, this);
         this.integrator = new Developers(5, dd, sueldos[5], 0.5f, drive, sem, this);
-        this.pm = new ProjectManager(dd, sem, this);
-        this.director = new Director(dd, stonks[0], stonks[1], drive, sem, this, this.pm);
+        this.pm = new ProjectManager(dd, sem, this, IC);
+        this.director = new Director(dd, dl, stonks[0], stonks[1], drive, sem, this, this.pm, IC);
         this.drive = drive;
+        this.IC = IC;
     }
 
     public void Begin() {
@@ -62,15 +64,29 @@ public class Company {
 
     public void UpdateProfit(int num) {
         setProfits(getProfits() + num);
+        if ("Capcom".equals(getName())){
+            IC.setStonks(String.valueOf(profits));
+        } else {
+            IC.setSQEstonks(String.valueOf(profits));
+        }
     }
 
     public void UpdateCosts(int num) {
         setCosts(getCosts() + num);
+        if ("Capcom".equals(getName())){
+            IC.setCosts(String.valueOf(costs));
+        } else {
+            IC.setSQEcosts(String.valueOf(costs));
+        }
     }
 
     public void UpdateEarnings() {
         setEarnings(getEarnings() + getProfits() - getCosts());
-        //función de actualizar ganancias en interfaz gráfica//
+        if ("Capcom".equals(getName())){
+            IC.setGananciasTexto(String.valueOf(earnings));
+        } else {
+            IC.setGananaciasSQE(String.valueOf(earnings));
+        }
     }
 
     /**
@@ -127,6 +143,11 @@ public class Company {
      */
     public void setDeadline(int deadline) {
         this.deadline = deadline;
+        if ("Capcom".equals(getName())){
+            IC.setDE_Texto(String.valueOf(deadline));
+        } else {
+            IC.setDE_SQE(String.valueOf(deadline));
+        }
     }
 
     /**
@@ -139,8 +160,23 @@ public class Company {
 
     /**
      * @param i the inits to set
+     * @param cant
      */
-    public void setInits(int i) {
-        this.inits[i] = inits[i];
+    public void setInits(int i, int cant) {
+        this.inits[i] = cant;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }

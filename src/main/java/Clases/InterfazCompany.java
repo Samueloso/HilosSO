@@ -5,49 +5,266 @@
  */
 package Clases;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Scanner;
-
-
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author samue
  */
 public class InterfazCompany extends javax.swing.JFrame {
-    
-                    int[] Capcom = {1, 2, 6, 5, 3, 1};
-        int Nwork1 = 18;
-        float[] ppCapcom = {0.25f, 1f, 5f, 0.50f};
-        int[] StonksCapcom = {400, 750};
-        int[] SquareEnix = {1, 1, 2, 4, 2, 3};
-        int Nwork2 = 13;
-        float[] ppSquareEnix = {0.34f, 2f, 3f, 0.34f};
-        int[] StonksSquareEnix = {350, 700};
-//        Backup B = new Backup();
-        int dd = 1000;
-        int dl = 0;
-        int[]lectura=ReadFileTXT("CapcomCompany.txt");
-        int[] init_developer1 = lectura;
-        int[] init_developer2 = {0, 0, 0, 0, 0, 0};
 
-        Drive drive1 = new Drive(0, 0, 0, 0, 0, 0, 0, Capcom);
-        Company C0 = new Company(dd, dl, "Capcom", Nwork1, ppCapcom[0], ppCapcom[1], ppCapcom[2], ppCapcom[3], drive1, init_developer1, StonksCapcom);
-        Drive drive2 = new Drive(0, 0, 0, 0, 0, 0, 0, SquareEnix);
-        Company C1 = new Company(dd, dl, "SquareEnix", Nwork2, ppSquareEnix[0], ppSquareEnix[1], ppSquareEnix[2], ppSquareEnix[3], drive2, init_developer2, StonksSquareEnix);
+    /**
+     * @param LogicoTexto the LogicoTexto to set
+     */
+    public void setLogicoTexto(String t) {
+        this.LogicoTexto.setText(t);
+    }
 
-    
+    /**
+     * @param DE_Texto the DE_Texto to set
+     */
+    public void setDE_Texto(String t) {
+        this.DE_Texto.setText(t);
+    }
+
+    /**
+     * @param DLCTexto the DLCTexto to set
+     */
+    public void setDLCTexto(String t) {
+        this.DLCTexto.setText(t);
+    }
+
+    /**
+     * @param DirectorTexto the DirectorTexto to set
+     */
+    public void setDirectorTexto(String t) {
+        this.DirectorTexto.setText(t);
+    }
+
+    /**
+     * @param GananciasTexto the GananciasTexto to set
+     */
+    public void setGananciasTexto(String t) {
+        this.GananciasTexto.setText(t);
+    }
+
+    /**
+     * @param JuegosDLCTexto the JuegosDLCTexto to set
+     */
+    public void setJuegosDLCTexto(String t) {
+        this.JuegosDLCTexto.setText(t);
+    }
+
+    /**
+     * @param JuegosTexto the JuegosTexto to set
+     */
+    public void setJuegosTexto(String t) {
+        this.JuegosTexto.setText(t);
+    }
+
+    /**
+     * @param NarrativaTexto the NarrativaTexto to set
+     */
+    public void setNarrativaTexto(String t) {
+        this.NarrativaTexto.setText(t);
+    }
+
+    /**
+     * @param NivelesTexto the NivelesTexto to set
+     */
+    public void setNivelesTexto(String t) {
+        this.NivelesTexto.setText(t);
+    }
+
+    /**
+     * @param PMTexto the PMTexto to set
+     */
+    public void setPMTexto(String t) {
+        this.PMTexto.setText(t);
+    }
+
+    /**
+     * @param SQEcosts the SQEcosts to set
+     */
+    public void setSQEcosts(String t) {
+        this.SQEcosts.setText(t);
+    }
+
+    /**
+     * @param SQEmoney_pm the SQEmoney_pm to set
+     */
+    public void setSQEmoney_pm(String t) {
+        this.SQEmoney_pm.setText(t);
+    }
+
+    /**
+     * @param SQEnumber the SQEnumber to set
+     */
+    public void setSQEnumber(String t) {
+        this.SQEnumber.setText(t);
+    }
+
+    /**
+     * @param SQEstonks the SQEstonks to set
+     */
+    public void setSQEstonks(String t) {
+        this.SQEstonks.setText(t);
+    }
+
+    /**
+     * @param SpriteTexto the SpriteTexto to set
+     */
+    public void setSpriteTexto(String t) {
+        this.SpriteTexto.setText(t);
+    }
+
+    /**
+     * @param costs the costs to set
+     */
+    public void setCosts(String t) {
+        this.costs.setText(t);
+    }
+
+    /**
+     * @param money_pm the money_pm to set
+     */
+    public void setMoney_pm(String t) {
+        this.money_pm.setText(t);
+    }
+
+    /**
+     * @param number the number to set
+     */
+    public void setNumber(String t) {
+        this.number.setText(t);
+    }
+
+    /**
+     * @param stonks the stonks to set
+     */
+    public void setStonks(String t) {
+        this.stonks.setText(t);
+    }
+
+    /**
+     * @param DE_SQE the DE_SQE to set
+     */
+    public void setDE_SQE(String t) {
+        this.DE_SQE.setText(t);
+    }
+
+    /**
+     * @param DirectorSQE the DirectorSQE to set
+     */
+    public void setDirectorSQE(String t) {
+        this.DirectorSQE.setText(t);
+    }
+
+    /**
+     * @param GananaciasSQE the GananaciasSQE to set
+     */
+    public void setGananaciasSQE(String t) {
+        this.GananaciasSQE.setText(t);
+    }
+
+    /**
+     * @param JuegosDLC_SQE the JuegosDLC_SQE to set
+     */
+    public void setJuegosDLC_SQE(String t) {
+        this.JuegosDLC_SQE.setText(t);
+    }
+
+    /**
+     * @param JuegosSQE the JuegosSQE to set
+     */
+    public void setJuegosSQE(String t) {
+        this.JuegosSQE.setText(t);
+    }
+
+    /**
+     * @param PM_SQE the PM_SQE to set
+     */
+    public void setPM_SQE(String t) {
+        this.PM_SQE.setText(t);
+    }
+
+    /**
+     * @param SQEGuionTexto the SQEGuionTexto to set
+     */
+    public void setSQEGuionTexto(String t) {
+        this.SQEGuionTexto.setText(t);
+    }
+
+    /**
+     * @param SQELogicaTexto the SQELogicaTexto to set
+     */
+    public void setSQELogicaTexto(String t) {
+        this.SQELogicaTexto.setText(t);
+    }
+
+    /**
+     * @param SQENivelTexto the SQENivelTexto to set
+     */
+    public void setSQENivelTexto(String t) {
+        this.SQENivelTexto.setText(t);
+    }
+
+    /**
+     * @param SQE_DLCTexto the SQE_DLCTexto to set
+     */
+    public void setSQE_DLCTexto(String t) {
+        this.SQE_DLCTexto.setText(t);
+    }
+
+    /**
+     * @param SQESpriteTexto the SQESpriteTexto to set
+     */
+    public void setSQESpriteTexto(String t) {
+        this.SQESpriteTexto.setText(t);
+    }
+
+    JFileChooser jfc = new JFileChooser();
+    File archivo;
+    int[] Capcom = {1, 2, 6, 5, 3, 1};
+    int Nwork1 = 18;
+    float[] ppCapcom = {0.25f, 1f, 5f, 0.50f};
+    int[] StonksCapcom = {400, 750};
+    int[] SquareEnix = {1, 1, 2, 4, 2, 3};
+    int Nwork2 = 13;
+    float[] ppSquareEnix = {0.34f, 2f, 3f, 0.34f};
+    int[] StonksSquareEnix = {350, 700};
+    int dd1 = 1;
+    int dl = 14;
+    int[] init_developer1 = {1, 1, 1, 1, 1, 1};
+    int[] init_developer2 = {1, 1, 1, 1, 1, 1};
+    int dd2 = dd1 * 1000;
+    Drive drive1 = new Drive("Capcom", 0, 0, 0, 0, 0, 0, 0, Capcom, this);
+    Company C0 = new Company(dd2, dl, "Capcom", Nwork1, ppCapcom[0], ppCapcom[1], ppCapcom[2], ppCapcom[3], drive1, init_developer1, StonksCapcom, this);
+    Drive drive2 = new Drive("SquareEnix", 0, 0, 0, 0, 0, 0, 0, SquareEnix, this);
+    Company C1 = new Company(dd2, dl, "SquareEnix", Nwork2, ppSquareEnix[0], ppSquareEnix[1], ppSquareEnix[2], ppSquareEnix[3], drive2, init_developer2, StonksSquareEnix, this);
+
     /**
      * Creates new form InterfazCompany
      */
     public InterfazCompany() {
-        
+
         initComponents();
-        
-        
+        C0.Begin();
+        C1.Begin();
     }
 
     /**
@@ -141,7 +358,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         NivelCapcomLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        SQETexto = new javax.swing.JTextField();
+        SQEGuionTexto = new javax.swing.JTextField();
         JuegosSQE = new javax.swing.JTextField();
         JuegosDLC_SQE = new javax.swing.JTextField();
         SQENivelTexto = new javax.swing.JTextField();
@@ -156,6 +373,13 @@ public class InterfazCompany extends javax.swing.JFrame {
         DirectorSQE = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         GananaciasSQE = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        SQEnumber = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        SQEstonks = new javax.swing.JTextField();
+        SQEcosts = new javax.swing.JTextField();
+        SQEmoney_pm = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         GuionCapcomLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -172,13 +396,20 @@ public class InterfazCompany extends javax.swing.JFrame {
         DLCTexto = new javax.swing.JTextField();
         LogicoTexto = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        DE_Texto = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         PMTexto = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         DirectorTexto = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         GananciasTexto = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        number = new javax.swing.JTextField();
+        money_pm = new javax.swing.JTextField();
+        stonks = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        costs = new javax.swing.JTextField();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -257,35 +488,40 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         DLCLabel.setText("DLC");
 
-        EntradaNarrativa.setText("0");
+        EntradaNarrativa.setEditable(false);
+        EntradaNarrativa.setText("1");
         EntradaNarrativa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaNarrativaActionPerformed(evt);
             }
         });
 
-        EntradaNiveles.setText("0");
+        EntradaNiveles.setEditable(false);
+        EntradaNiveles.setText("1");
         EntradaNiveles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaNivelesActionPerformed(evt);
             }
         });
 
-        EntradaLogica.setText("0");
+        EntradaLogica.setEditable(false);
+        EntradaLogica.setText("1");
         EntradaLogica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaLogicaActionPerformed(evt);
             }
         });
 
-        EntradaDLC.setText("0");
+        EntradaDLC.setEditable(false);
+        EntradaDLC.setText("1");
         EntradaDLC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaDLCActionPerformed(evt);
             }
         });
 
-        EntradaIntegrador.setText("0");
+        EntradaIntegrador.setEditable(false);
+        EntradaIntegrador.setText("1");
         EntradaIntegrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaIntegradorActionPerformed(evt);
@@ -375,35 +611,40 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         IntegradorLabel1.setText("Integrator");
 
-        EntradaNarrativaSE.setText("0");
+        EntradaNarrativaSE.setEditable(false);
+        EntradaNarrativaSE.setText("1");
         EntradaNarrativaSE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaNarrativaSEActionPerformed(evt);
             }
         });
 
-        EntradaNivelesSE.setText("0");
+        EntradaNivelesSE.setEditable(false);
+        EntradaNivelesSE.setText("1");
         EntradaNivelesSE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaNivelesSEActionPerformed(evt);
             }
         });
 
-        EntradaLogicaSE.setText("0");
+        EntradaLogicaSE.setEditable(false);
+        EntradaLogicaSE.setText("1");
         EntradaLogicaSE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaLogicaSEActionPerformed(evt);
             }
         });
 
-        EntradaDLCSE.setText("0");
+        EntradaDLCSE.setEditable(false);
+        EntradaDLCSE.setText("1");
         EntradaDLCSE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaDLCSEActionPerformed(evt);
             }
         });
 
-        EntradaIntegradorSE.setText("0");
+        EntradaIntegradorSE.setEditable(false);
+        EntradaIntegradorSE.setText("1");
         EntradaIntegradorSE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaIntegradorSEActionPerformed(evt);
@@ -412,7 +653,8 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         LogicaLabel2.setText("Sprites");
 
-        EntradaSprites.setText("0");
+        EntradaSprites.setEditable(false);
+        EntradaSprites.setText("1");
         EntradaSprites.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaSpritesActionPerformed(evt);
@@ -435,7 +677,8 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         LogicaLabel3.setText("Sprites");
 
-        EntradaSpritesSE.setText("0");
+        EntradaSpritesSE.setEditable(false);
+        EntradaSpritesSE.setText("1");
         EntradaSpritesSE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntradaSpritesSEActionPerformed(evt);
@@ -810,7 +1053,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        jTabbedPane3.addTab("tab1", jPanel1);
+        jTabbedPane3.addTab("Configuraciones iniciales", jPanel1);
 
         GuionCapcomLabel1.setText("Guiones producidos:");
 
@@ -826,8 +1069,13 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         jLabel15.setText("Juegos Producidos");
 
-        SQETexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SQETexto.setText("jTextField4");
+        SQEGuionTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        SQEGuionTexto.setText("jTextField4");
+        SQEGuionTexto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SQEGuionTextoActionPerformed(evt);
+            }
+        });
 
         JuegosSQE.setText("jTextField4");
 
@@ -845,7 +1093,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         SQELogicaTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SQELogicaTexto.setText("jTextField4");
 
-        jLabel16.setText("Dias Para La Entrega");
+        jLabel16.setText("Dias Para La Entrega:");
 
         DE_SQE.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DE_SQE.setText("jTextField4");
@@ -860,9 +1108,28 @@ public class InterfazCompany extends javax.swing.JFrame {
         DirectorSQE.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DirectorSQE.setText("jTextField6");
 
-        jLabel19.setText("GANANCIAS:");
+        jLabel19.setText("Utilidad Total:");
 
         GananaciasSQE.setText("jTextField7");
+
+        jLabel1.setText("Cantidad de faltas y dinero descontado:");
+
+        SQEnumber.setText("jTextField2");
+
+        jLabel20.setText("Ganancias en bruto:");
+
+        jLabel21.setText("Costos operativos:");
+
+        SQEstonks.setText("jTextField5");
+
+        SQEcosts.setText("jTextField6");
+
+        SQEmoney_pm.setText("jTextField7");
+        SQEmoney_pm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SQEmoney_pmActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -876,23 +1143,25 @@ public class InterfazCompany extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(SQE_DLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(NivelCapcomLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(SQENivelTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(JuegosDLC_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(JuegosSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(142, 142, 142)
+                                .addComponent(jLabel19))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(JuegosSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(GananaciasSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(GuionCapcomLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(SQETexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(SQEGuionTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(18, 18, 18)
@@ -900,79 +1169,112 @@ public class InterfazCompany extends javax.swing.JFrame {
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(SQELogicaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(80, 80, 80)
+                                .addComponent(SQELogicaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(NivelCapcomLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(SQENivelTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(GananaciasSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(DE_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(18, 18, 18)
+                                .addGap(229, 229, 229)
                                 .addComponent(PM_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
                                 .addGap(18, 18, 18)
-                                .addComponent(DirectorSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(jLabel18)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(DirectorSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel17)
+                                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(SQEstonks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(SQEnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                                .addGap(36, 36, 36)
+                                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(SQEcosts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SQEmoney_pm, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(DE_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(47, 47, 47))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GuionCapcomLabel1)
-                    .addComponent(SQETexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DE_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(PM_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NivelCapcomLabel1)
-                    .addComponent(SQENivelTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(GuionCapcomLabel1)
+                            .addComponent(SQEGuionTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DE_SQE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PM_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NivelCapcomLabel1)
+                            .addComponent(SQENivelTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(SQESpriteTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(SQEnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SQEmoney_pm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(DirectorSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(SQELogicaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(SQEstonks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(SQELogicaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel12)
+                            .addComponent(SQE_DLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(42, 42, 42)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(GananaciasSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(SQE_DLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel21)
+                            .addComponent(SQEcosts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JuegosDLC_SQE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JuegosSQE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JuegosSQE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GananaciasSQE, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -982,18 +1284,18 @@ public class InterfazCompany extends javax.swing.JFrame {
             .addGap(0, 1367, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(272, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(272, Short.MAX_VALUE)))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 693, Short.MAX_VALUE)
+            .addGap(0, 721, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(125, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(109, Short.MAX_VALUE)))
         );
 
         jTabbedPane3.addTab("SQUARE ENIX", jPanel7);
@@ -1030,11 +1332,16 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         LogicoTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         LogicoTexto.setText("jTextField4");
+        LogicoTexto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogicoTextoActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Dias Para La Entrega");
 
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setText("jTextField4");
+        DE_Texto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        DE_Texto.setText("jTextField4");
 
         jLabel9.setText("Proyect Manager Estado:");
 
@@ -1050,6 +1357,30 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         GananciasTexto.setText("jTextField7");
 
+        jLabel22.setText("Cantidad de faltas y dinero descontado:");
+
+        number.setText("jTextField2");
+        number.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberActionPerformed(evt);
+            }
+        });
+
+        money_pm.setText("jTextField7");
+        money_pm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                money_pmActionPerformed(evt);
+            }
+        });
+
+        stonks.setText("jTextField5");
+
+        jLabel23.setText("Ganancias en bruto:");
+
+        jLabel24.setText("Costos operativos:");
+
+        costs.setText("jTextField6");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1058,21 +1389,19 @@ public class InterfazCompany extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(DLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(NivelCapcomLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(NivelesTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(JuegosDLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(JuegosTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(208, 208, 208)
+                                .addComponent(jLabel11))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(JuegosTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(92, 92, 92)
+                                .addComponent(GananciasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1086,26 +1415,50 @@ public class InterfazCompany extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(LogicoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(80, 80, 80)
+                                .addComponent(LogicoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(NivelCapcomLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(NivelesTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(DLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(GananciasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(80, 80, 80)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(money_pm, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(DE_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(PMTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(DirectorTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(PMTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(DirectorTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(91, 91, 91)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(stonks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(costs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1115,50 +1468,59 @@ public class InterfazCompany extends javax.swing.JFrame {
                     .addComponent(GuionCapcomLabel)
                     .addComponent(NarrativaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DE_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(PMTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NivelCapcomLabel)
-                    .addComponent(NivelesTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NivelCapcomLabel)
+                            .addComponent(NivelesTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(SpriteTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(money_pm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(DirectorTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(36, 36, 36)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(LogicoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                            .addComponent(LogicoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(GananciasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(DLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)
+                            .addComponent(DLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(stonks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(costs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JuegosDLCTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JuegosTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JuegosTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GananciasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("CAPCOM", jPanel6);
@@ -1177,7 +1539,7 @@ public class InterfazCompany extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1189,169 +1551,168 @@ public class InterfazCompany extends javax.swing.JFrame {
 
     private void RestarIntegradorSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarIntegradorSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma>0){
-            contadorIntegradorSE--;
-            EntradaIntegradorSE.setText(String.valueOf(contadorIntegradorSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[5] > 1 && totalsuma <= Nwork2) {
+            init_developer2[5]--;
+            EntradaIntegradorSE.setText(String.valueOf(init_developer2[5]));
+            C1.setInits(5, init_developer2[5]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarIntegradorSEActionPerformed
 
     private void AgregarIntegradorBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarIntegradorBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma<18){
-            contadorIntegradorSE++;
-            EntradaIntegradorSE.setText(String.valueOf(contadorIntegradorSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[5] >= 1 && totalsuma < Nwork2) {
+            init_developer2[5]++;
+            EntradaIntegradorSE.setText(String.valueOf(init_developer2[5]));
+            C1.setInits(5, init_developer2[5]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_AgregarIntegradorBTNSEActionPerformed
 
     private void RestarDLCBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarDLCBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma>0){
-            contadorDLCSE--;
-            EntradaDLCSE.setText(String.valueOf(contadorDLCSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[4] > 1 && totalsuma <= Nwork2) {
+            init_developer2[4]--;
+            EntradaDLCSE.setText(String.valueOf(init_developer2[4]));
+            C1.setInits(4, init_developer2[4]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarDLCBTNSEActionPerformed
 
     private void AgregarDLCBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDLCBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma<18){
-            contadorDLCSE++;
-            EntradaDLCSE.setText(String.valueOf(contadorDLCSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[4] >= 1 && totalsuma < Nwork2) {
+            init_developer2[4]++;
+            EntradaDLCSE.setText(String.valueOf(init_developer2[4]));
+            C1.setInits(4, init_developer2[4]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_AgregarDLCBTNSEActionPerformed
 
     private void RestarLogicaBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarLogicaBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma>0){
-            contadorLogicaSE--;
-            EntradaLogicaSE.setText(String.valueOf(contadorLogicaSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[3] > 1 && totalsuma <= Nwork2) {
+            init_developer2[3]--;
+            EntradaLogicaSE.setText(String.valueOf(init_developer2[3]));
+            C1.setInits(3, init_developer2[3]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarLogicaBTNSEActionPerformed
 
     private void AgregarLogicaBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarLogicaBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma<18){
-            contadorLogicaSE++;
-            EntradaLogicaSE.setText(String.valueOf(contadorLogicaSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[3] >= 1 && totalsuma < Nwork2) {
+            init_developer2[3]++;
+            EntradaLogicaSE.setText(String.valueOf(init_developer2[3]));
+            C1.setInits(3, init_developer2[3]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_AgregarLogicaBTNSEActionPerformed
 
     private void RestarSpriteBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarSpriteBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma>0){
-            contadorSpritesSE--;
-            EntradaSpritesSE.setText(String.valueOf(contadorSpritesSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[2] > 1 && totalsuma <= Nwork2) {
+            init_developer2[2]--;
+            EntradaSpritesSE.setText(String.valueOf(init_developer2[2]));
+            C1.setInits(2, init_developer2[2]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarSpriteBTNSEActionPerformed
 
     private void AgregarSpriteBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarSpriteBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma<18){
-            contadorSpritesSE++;
-            EntradaSpritesSE.setText(String.valueOf(contadorSpritesSE));
-
-        }
-        else{
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[2] >= 1 && totalsuma < Nwork2) {
+            init_developer2[2]++;
+            EntradaSpritesSE.setText(String.valueOf(init_developer2[2]));
+            C1.setInits(2, init_developer2[2]);
+        } else {
 
         }
     }//GEN-LAST:event_AgregarSpriteBTNSEActionPerformed
 
     private void RestarNivelesBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarNivelesBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma>0){
-            contadorNivelesSE--;
-            EntradaNivelesSE.setText(String.valueOf(contadorNivelesSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[1] > 1 && totalsuma <= Nwork2) {
+            init_developer2[1]--;
+            EntradaNivelesSE.setText(String.valueOf(init_developer2[1]));
+            C1.setInits(1, init_developer2[1]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarNivelesBTNSEActionPerformed
 
     private void AgregarNivelesBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarNivelesBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma<18){
-            contadorNivelesSE++;
-            EntradaNivelesSE.setText(String.valueOf(contadorNivelesSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[1] >= 1 && totalsuma < Nwork2) {
+            init_developer2[1]++;
+            EntradaNivelesSE.setText(String.valueOf(init_developer2[1]));
+            C1.setInits(1, init_developer2[1]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_AgregarNivelesBTNSEActionPerformed
 
     private void QuitarNarrativaBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitarNarrativaBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma>0){
-            contadorNarrativaSE--;
-            EntradaNarrativaSE.setText(String.valueOf(contadorNarrativaSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[0] > 1 && totalsuma <= Nwork2) {
+            init_developer2[0]--;
+            EntradaNarrativaSE.setText(String.valueOf(init_developer2[0]));
+            C1.setInits(0, init_developer2[0]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_QuitarNarrativaBTNSEActionPerformed
 
     private void agregarNarrativaBTNSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNarrativaBTNSEActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativaSE+contadorNivelesSE+contadorSpritesSE+contadorLogicaSE+contadorDLCSE+contadorIntegradorSE;
-        if(totalsuma<18){
-            contadorNarrativaSE++;
-            EntradaNarrativaSE.setText(String.valueOf(contadorNarrativaSE));
+        int totalsuma = init_developer2[0] + init_developer2[1] + init_developer2[2] + init_developer2[3] + init_developer2[4] + init_developer2[5];
+        if (init_developer2[0] >= 1 && totalsuma < Nwork2) {
+            init_developer2[0]++;
+            EntradaNarrativaSE.setText(String.valueOf(init_developer2[0]));
+            C1.setInits(0, init_developer2[0]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_agregarNarrativaBTNSEActionPerformed
 
     private void RestarIntegradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarIntegradorActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma>0){
-            contadorIntegrador--;
-            EntradaIntegrador.setText(String.valueOf(contadorIntegrador));
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma <= Nwork1 && init_developer1[5] > 1) {
+            init_developer1[5]--;
+            EntradaIntegrador.setText(String.valueOf(init_developer1[5]));
+            C0.setInits(5, init_developer1[5]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarIntegradorActionPerformed
@@ -1362,26 +1723,24 @@ public class InterfazCompany extends javax.swing.JFrame {
 
     private void RestarSpriteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarSpriteBTNActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma>0){
-            contadorSprites--;
-            EntradaSprites.setText(String.valueOf(contadorSprites));
-
-        }
-        else{
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma <= Nwork1 && init_developer1[2] > 1) {
+            init_developer1[2]--;
+            EntradaSprites.setText(String.valueOf(init_developer1[2]));
+            C0.setInits(2, init_developer1[2]);
+        } else {
 
         }
     }//GEN-LAST:event_RestarSpriteBTNActionPerformed
 
     private void AgregarSpriteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarSpriteBTNActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma<13){
-            contadorSprites++;
-            EntradaSprites.setText(String.valueOf(contadorSprites));
-
-        }
-        else{
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma < Nwork1 && init_developer1[2] >= 1) {
+            init_developer1[2]++;
+            EntradaSprites.setText(String.valueOf(init_developer1[2]));
+            C0.setInits(2, init_developer1[2]);
+        } else {
 
         }
     }//GEN-LAST:event_AgregarSpriteBTNActionPerformed
@@ -1412,98 +1771,110 @@ public class InterfazCompany extends javax.swing.JFrame {
 
     private void CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarDatosActionPerformed
         // TODO add your handling code here:
-
-        int[] cutom1={contadorNarrativa,contadorNiveles,contadorSprites,contadorLogica,contadorDLC,contadorIntegrador};
-        int[] cutom2={contadorNarrativaSE,contadorNivelesSE,contadorSpritesSE,contadorLogicaSE,contadorDLCSE,contadorIntegradorSE};
-        CargarTXT(cutom1,"CapcomCompany.txt");
-        CargarTXT(cutom2,"SquareEnixCompany.txt");
+        Escritura();
+        System.out.println(dd1 + "-" + dl);
+        System.out.println(init_developer1[0] + "-" + init_developer1[1] + "-" + init_developer1[2] + "-" + init_developer1[3] + "-" + init_developer1[4] + "-" + init_developer1[5]);
+        System.out.println(init_developer2[0] + "-" + init_developer2[1] + "-" + init_developer2[2] + "-" + init_developer2[3] + "-" + init_developer2[4] + "-" + init_developer2[5]);
+        lectura_data();
+        System.out.println(dd1 + "-" + dl);
+        System.out.println(init_developer1[0] + "-" + init_developer1[1] + "-" + init_developer1[2] + "-" + init_developer1[3] + "-" + init_developer1[4] + "-" + init_developer1[5]);
+        System.out.println(init_developer2[0] + "-" + init_developer2[1] + "-" + init_developer2[2] + "-" + init_developer2[3] + "-" + init_developer2[4] + "-" + init_developer2[5]);
+//        int[] cutom1 = {contadorNarrativa, contadorNiveles, contadorSprites, contadorLogica, contadorDLC, contadorIntegrador};
+//        int[] cutom2 = {contadorNarrativaSE, contadorNivelesSE, contadorSpritesSE, contadorLogicaSE, contadorDLCSE, contadorIntegradorSE};
+//        CargarTXT(cutom1, "CapcomCompany.txt");
+//        CargarTXT(cutom2, "SquareEnixCompany.txt");
     }//GEN-LAST:event_CargarDatosActionPerformed
 
     private void RestarDLCBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarDLCBTNActionPerformed
         // TODO add your handling code here:
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma <= Nwork1 && init_developer1[4] > 1) {
+            init_developer1[4]--;
+            EntradaDLC.setText(String.valueOf(init_developer1[4]));
+            C0.setInits(4, init_developer1[4]);
 
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma>0){
-            contadorDLC--;
-            EntradaDLC.setText(String.valueOf(contadorDLC));
-
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarDLCBTNActionPerformed
 
     private void RestarLogicaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarLogicaBTNActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma>0){
-            contadorLogica--;
-            EntradaLogica.setText(String.valueOf(contadorLogica));
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma <= Nwork1 && init_developer1[3] > 1) {
+            init_developer1[3]--;
+            EntradaLogica.setText(String.valueOf(init_developer1[3]));
+            C0.setInits(3, init_developer1[3]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_RestarLogicaBTNActionPerformed
 
     private void RestarNivelesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarNivelesBTNActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma>0){
-            contadorNiveles--;
-            EntradaNiveles.setText(String.valueOf(contadorNiveles));
-
-        }
-        else{
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma <= Nwork1 && init_developer1[1] > 1) {
+            init_developer1[1]--;
+            EntradaNiveles.setText(String.valueOf(init_developer1[1]));
+            C0.setInits(1, init_developer1[1]);
+        } else {
 
         }
     }//GEN-LAST:event_RestarNivelesBTNActionPerformed
 
     private void AgregarDLCBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDLCBTNActionPerformed
         // TODO add your handling code here:
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma<13){
-            contadorDLC++;
-            EntradaDLC.setText(String.valueOf(contadorDLC));}
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma < Nwork1 && init_developer1[4] >= 1) {
+            init_developer1[4]++;
+            EntradaDLC.setText(String.valueOf(init_developer1[4]));
+            C0.setInits(4, init_developer1[4]);
+        }
     }//GEN-LAST:event_AgregarDLCBTNActionPerformed
 
     private void AgregarIntegradorBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarIntegradorBTNActionPerformed
         // TODO add your handling code here:
-
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma<13){
-            contadorIntegrador++;
-            EntradaIntegrador.setText(String.valueOf(contadorIntegrador));}
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma < Nwork1 && init_developer1[5] >= 1) {
+            init_developer1[5]++;
+            EntradaIntegrador.setText(String.valueOf(init_developer1[5]));
+            C0.setInits(5, init_developer1[5]);
+        }
     }//GEN-LAST:event_AgregarIntegradorBTNActionPerformed
 
     private void AgregarLogicaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarLogicaBTNActionPerformed
         // TODO add your handling code here:
 
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma<13){
-            contadorLogica++;
-            EntradaLogica.setText(String.valueOf(contadorLogica));}
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma < Nwork1 && init_developer1[3] >= 1) {
+            init_developer1[3]++;
+            EntradaLogica.setText(String.valueOf(init_developer1[3]));
+            C0.setInits(3, init_developer1[3]);
+        }
     }//GEN-LAST:event_AgregarLogicaBTNActionPerformed
 
     private void AgregarNivelesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarNivelesBTNActionPerformed
         // TODO add your handling code here:
 
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma<13){
-            contadorNiveles++;
-            EntradaNiveles.setText(String.valueOf(contadorNiveles));}
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma < Nwork1 && init_developer1[1] >= 1) {
+            init_developer1[1]++;
+            EntradaNiveles.setText(String.valueOf(init_developer1[1]));
+            C0.setInits(1, init_developer1[1]);
+        }
     }//GEN-LAST:event_AgregarNivelesBTNActionPerformed
 
     private void QuitarNarrativaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitarNarrativaBTNActionPerformed
         // TODO add your handling code here:
         //contadorNarrativa--;
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma>0){
-            contadorNarrativa--;
-            EntradaNarrativa.setText(String.valueOf(contadorNarrativa));
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma <= Nwork1 && init_developer1[0] > 1) {
+            init_developer1[0]--;
+            EntradaNarrativa.setText(String.valueOf(init_developer1[0]));
+            C0.setInits(0, init_developer1[0]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_QuitarNarrativaBTNActionPerformed
@@ -1511,13 +1882,13 @@ public class InterfazCompany extends javax.swing.JFrame {
     private void agregarNarrativaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNarrativaBTNActionPerformed
         // TODO add your handling code here:
 
-        int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-        if(totalsuma<13){
-            contadorNarrativa++;
-            EntradaNarrativa.setText(String.valueOf(contadorNarrativa));
+        int totalsuma = init_developer1[0] + init_developer1[1] + init_developer1[2] + init_developer1[3] + init_developer1[4] + init_developer1[5];
+        if (totalsuma < Nwork1 && init_developer1[0] >= 1) {
+            init_developer1[0]++;
+            EntradaNarrativa.setText(String.valueOf(init_developer1[0]));
+            C0.setInits(0, init_developer1[0]);
 
-        }
-        else{
+        } else {
 
         }
     }//GEN-LAST:event_agregarNarrativaBTNActionPerformed
@@ -1542,70 +1913,116 @@ public class InterfazCompany extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EntradaNarrativaActionPerformed
 
-    public void CargarTXT(int[] arreglo, String nombreArchivo) {
-        try {
-            try (FileWriter writer = new FileWriter(nombreArchivo)) {
-                for (int i = 0; i < arreglo.length; i++) {
-                    writer.write(String.valueOf(arreglo[i]));
-                    if (i != arreglo.length - 1) {
-                        writer.write(" ");
-                    }
+    private void SQEGuionTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SQEGuionTextoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SQEGuionTextoActionPerformed
+
+    private void LogicoTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogicoTextoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogicoTextoActionPerformed
+
+    private void numberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberActionPerformed
+
+    private void money_pmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_money_pmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_money_pmActionPerformed
+
+    private void SQEmoney_pmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SQEmoney_pmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SQEmoney_pmActionPerformed
+
+    public String Seleccionador_lectura() {
+        String texto = "";
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+        jfc.setFileFilter(filtro);
+        int selec = jfc.showOpenDialog(null);
+
+        if (selec == JFileChooser.APPROVE_OPTION) {
+            this.archivo = jfc.getSelectedFile();
+            try {
+                FileReader fr = new FileReader(archivo);
+                BufferedReader br = new BufferedReader(fr);
+                JOptionPane.showMessageDialog(null, "Carga exitosa.");
+                // Lectura del fichero
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    texto += linea + "\n";
                 }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error en la carga de datos.");
             }
-        } catch (IOException e) {
-            System.out.println("Error al guardar el arreglo en el archivo.");
+        }
+        return texto;
+    }
+
+    public void Escritura() {
+        String info = "";
+        info += dd1;
+        info += " % ";
+        info += dl;
+        info += "\n";
+        for (int i = 0; i < init_developer1.length; i++) {
+            if (i == init_developer1.length - 1) {
+                info += init_developer1[i];
+                info += "\n";
+            } else {
+                info += init_developer1[i];
+                info += ", ";
+            }
+        }
+        for (int i = 0; i < init_developer2.length; i++) {
+            if (i == init_developer2.length - 1) {
+                info += init_developer2[i];
+                info += "\n";
+            } else {
+                info += init_developer2[i];
+                info += ", ";
+            }
+        }
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+
+        jfc.setFileFilter(filtro);
+        int selec = jfc.showOpenDialog(null);
+        if (selec == JFileChooser.APPROVE_OPTION) {
+            this.archivo = jfc.getSelectedFile();
+            try {
+                PrintWriter pw = new PrintWriter(archivo);
+                pw.print(info);
+                pw.close();
+                JOptionPane.showMessageDialog(null, "Guardado exitoso.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error en el guardado de datos.");
+            }
         }
     }
-    public static int[] ReadFileTXT(String nombreArchivo) {
-        int[] arreglo = null;
 
-        try {
-            File archivo = new File(nombreArchivo);
-            Scanner scanner = new Scanner(archivo);
+    public void lectura_data() {
+        String data = this.Seleccionador_lectura();
+        if (!"".equals(data)) {
+            String pt1 = "\n";
+            String pt2 = " % ";
+            String pt3 = ", ";
 
-            String linea = scanner.nextLine();
-            String[] elementos = linea.split(" ");
-            arreglo = new int[elementos.length];
+            String[] datos = data.split(pt1);
+            String[] datos1 = datos[0].split(pt2);
+            dd1 = Integer.parseInt(datos1[0]);
+            dl = Integer.parseInt(datos1[1]);
 
-            for (int i = 0; i < elementos.length; i++) {
-                arreglo[i] = Integer.parseInt(elementos[i]);
-            }
+            String[] iniciales = datos[1].split(pt3);
+            init_developer1 = Arrays.stream(iniciales).mapToInt(Integer::parseInt).toArray();
+            iniciales = datos[2].split(pt3);
+            init_developer2 = Arrays.stream(iniciales).mapToInt(Integer::parseInt).toArray();
 
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("El archivo no existe.");
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Carga Completada");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "El archivo está vacío");
         }
 
-        return arreglo;
     }
 
-    
-        int contadorNarrativa=0;
-    int contadorNiveles=0;
-    int contadorSprites=0;
-    int contadorLogica=0;
-    int contadorDLC=0;
-    int contadorIntegrador=0; 
-    int contadorNarrativaSE=0;
-    int contadorNivelesSE=0;
-    int contadorSpritesSE=0;
-    int contadorLogicaSE=0;
-    int contadorDLCSE=0;
-    int contadorIntegradorSE=0; 
-    //int totalsuma=contadorNarrativa+contadorNiveles+contadorSprites+contadorLogica+contadorDLC+contadorIntegrador;
-    
-
-    public void setContadorNiveles(int contadorNiveles) {
-        this.contadorNiveles = contadorNiveles;
-    }
-
-    public int getContadorNiveles() {
-        return contadorNiveles;
-    }
-    
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -1620,31 +2037,38 @@ public class InterfazCompany extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazCompany.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazCompany.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazCompany.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazCompany.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-
-        
-
-       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new InterfazCompany().setVisible(true);
+                
             }
-        });
+        }
+        );
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarDLCBTN;
@@ -1659,6 +2083,7 @@ public class InterfazCompany extends javax.swing.JFrame {
     private javax.swing.JButton AgregarSpriteBTNSE;
     private javax.swing.JButton CargarDatos;
     private javax.swing.JTextField DE_SQE;
+    private javax.swing.JTextField DE_Texto;
     private javax.swing.JLabel DLCLabel;
     private javax.swing.JLabel DLCLabel1;
     private javax.swing.JTextField DLCTexto;
@@ -1714,16 +2139,22 @@ public class InterfazCompany extends javax.swing.JFrame {
     private javax.swing.JButton RestarNivelesBTNSE;
     private javax.swing.JButton RestarSpriteBTN;
     private javax.swing.JButton RestarSpriteBTNSE;
+    private javax.swing.JTextField SQEGuionTexto;
     private javax.swing.JTextField SQELogicaTexto;
     private javax.swing.JTextField SQENivelTexto;
     private javax.swing.JTextField SQESpriteTexto;
-    private javax.swing.JTextField SQETexto;
     private javax.swing.JTextField SQE_DLCTexto;
+    private javax.swing.JTextField SQEcosts;
+    private javax.swing.JTextField SQEmoney_pm;
+    private javax.swing.JTextField SQEnumber;
+    private javax.swing.JTextField SQEstonks;
     private javax.swing.JTextField SpriteTexto;
     private javax.swing.JButton agregarNarrativaBTN;
     private javax.swing.JButton agregarNarrativaBTNSE;
+    private javax.swing.JTextField costs;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1735,6 +2166,11 @@ public class InterfazCompany extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1763,10 +2199,12 @@ public class InterfazCompany extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField money_pm;
     private javax.swing.JLabel narrativaLabel;
     private javax.swing.JLabel narrativaLabel1;
+    private javax.swing.JTextField number;
+    private javax.swing.JTextField stonks;
     // End of variables declaration//GEN-END:variables
 
 }

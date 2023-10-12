@@ -10,7 +10,8 @@ package Clases;
  * @author samue
  */
 public class Drive {
-
+    
+    private String owner;
     private int narrative;
     private int levels;
     private int sprites;
@@ -19,10 +20,11 @@ public class Drive {
     private int games;
     private int gamesDLC;
     private final int[] conditions;
+    private InterfazCompany IC;
     
     
-    
-    public Drive(int narrative, int levels, int sprites, int logic, int DLC, int games, int gamesDLC, int[] conditions) {
+    public Drive(String owner, int narrative, int levels, int sprites, int logic, int DLC, int games, int gamesDLC, int[] conditions, InterfazCompany IC) {
+        this.owner = owner;
         this.narrative = narrative;
         this.levels = levels;
         this.sprites = sprites;
@@ -31,6 +33,7 @@ public class Drive {
         this.games = games;
         this.gamesDLC = gamesDLC;
         this.conditions = conditions;
+        this.IC = IC;
     }
 
     public int getNarrative() {
@@ -39,6 +42,11 @@ public class Drive {
 
     public void setNarrative(int narrative) {
         this.narrative = narrative;
+        if ("Capcom".equals(owner)){
+            IC.setNarrativaTexto(String.valueOf(narrative));
+        } else {
+            IC.setSQEGuionTexto(String.valueOf(narrative));
+        }
     }
 
     public int getLevels() {
@@ -47,6 +55,11 @@ public class Drive {
 
     public void setLevels(int levels) {
         this.levels = levels;
+        if ("Capcom".equals(owner)){
+            IC.setNivelesTexto(String.valueOf(levels));
+        } else {
+            IC.setSQENivelTexto(String.valueOf(levels));
+        }
     }
 
     public int getSprites() {
@@ -55,6 +68,11 @@ public class Drive {
 
     public void setSprites(int sprites) {
         this.sprites = sprites;
+        if ("Capcom".equals(owner)){
+            IC.setSpriteTexto(String.valueOf(sprites));
+        } else {
+            IC.setSQESpriteTexto(String.valueOf(sprites));
+        }
     }
 
     public int getLogic() {
@@ -63,6 +81,11 @@ public class Drive {
 
     public void setLogic(int logic) {
         this.logic = logic;
+        if ("Capcom".equals(owner)){
+            IC.setLogicoTexto(String.valueOf(logic));
+        } else {
+            IC.setSQELogicaTexto(String.valueOf(logic));
+        }
     }
 
     public int getDLC() {
@@ -71,6 +94,11 @@ public class Drive {
 
     public void setDLC(int DLC) {
         this.DLC = DLC;
+        if ("Capcom".equals(owner)){
+            IC.setDLCTexto(String.valueOf(DLC));
+        } else {
+            IC.setSQE_DLCTexto(String.valueOf(DLC));
+        }
     }
 
     public int getGames() {
@@ -79,6 +107,11 @@ public class Drive {
 
     public void setGames(int games) {
         this.games = games;
+        if ("Capcom".equals(owner)){
+            IC.setJuegosTexto(String.valueOf(games));
+        } else {
+            IC.setJuegosSQE(String.valueOf(games));
+        }
     }
 
     /**
@@ -93,6 +126,11 @@ public class Drive {
      */
     public void setGamesDLC(int gamesDLC) {
         this.gamesDLC = gamesDLC;
+        if ("Capcom".equals(owner)){
+            IC.setJuegosDLCTexto(String.valueOf(gamesDLC));
+        } else {
+            IC.setJuegosDLC_SQE(String.valueOf(gamesDLC));
+        }
     }
 
     public void addProduct(int productCanti, int type) {

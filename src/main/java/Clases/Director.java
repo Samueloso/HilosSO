@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class Director extends Thread {
 
     private int dayDuration;
+    private int deadline;
     private int stonks;
     private int stonksDLC;
     private String status = "Trabajando";
@@ -24,16 +25,20 @@ public class Director extends Thread {
     private Semaphore sema;
     private Company comp;
     private ProjectManager pm;
+    private int atrapadas = 0;
+    private InterfazCompany IC;
     private Random r = new Random();
 
-    public Director(int dd, int s, int sd, Drive drive, Semaphore sem, Company comp, ProjectManager pm) {
+    public Director(int dd, int dl, int s, int sd, Drive drive, Semaphore sem, Company comp, ProjectManager pm, InterfazCompany IC) {
         this.dayDuration = dd;
+        this.deadline = dl;
         this.stonks = s;
         this.stonksDLC = sd;
         this.drive = drive;
         this.sema = sem;
         this.comp = comp;
         this.pm = pm;
+        this.IC = IC;
     }
 
     @Override
@@ -55,6 +60,7 @@ public class Director extends Thread {
                 comp.UpdateCosts(sueldo);
                 comp.UpdateProfit(Nstonks);
                 comp.UpdateEarnings();
+                comp.setDeadline(deadline);
                 sema.release();
 
             } else {
@@ -68,8 +74,16 @@ public class Director extends Thread {
                         setStatus("Revisando al Project Manager");
                         String caught = pm.getStatus();
                         if ("Viendo Streams".equals(caught)) {
+                            atrapadas++;
                             int admonition = 50;
                             comp.UpdateProfit(admonition);
+                            if ("Capcom".equals(comp.name)) {
+                                IC.setNumber(String.valueOf(atrapadas));
+                                IC.setMoney_pm(String.valueOf(atrapadas*admonition));
+                            } else {
+                                IC.setSQEnumber(String.valueOf(atrapadas));
+                                IC.setSQEmoney_pm(String.valueOf(atrapadas*admonition));
+                            }
                             sleep(5 * (dayDuration) / 288);
                             setStatus("Trabajando");
                             sleep(dayDuration / 288);
@@ -98,5 +112,10 @@ public class Director extends Thread {
      */
     public void setStatus(String status) {
         this.status = status;
+        if ("Capcom".equals(comp.name)) {
+            IC.setDirectorTexto(String.valueOf(status));
+        } else {
+            IC.setDirectorSQE(String.valueOf(status));
+        }
     }
 }

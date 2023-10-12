@@ -18,11 +18,13 @@ public class ProjectManager extends Thread {
     private String status = "Trabajando";
     private Semaphore sema;
     private Company comp;
+    private InterfazCompany IC;
 
-    public ProjectManager(int dd, Semaphore sem, Company comp) {
+    public ProjectManager(int dd, Semaphore sem, Company comp, InterfazCompany IC) {
         this.dayDuration = dd;
         this.sema = sem;
         this.comp = comp;
+        this.IC = IC;
     }
 
     @Override
@@ -89,6 +91,11 @@ public class ProjectManager extends Thread {
      */
     public void setStatus(String status) {
         this.status = status;
+        if ("Capcom".equals(comp.name)){
+            IC.setPMTexto(String.valueOf(status));
+        } else {
+            IC.setPM_SQE(String.valueOf(status));
+        }
     }
 
 }
