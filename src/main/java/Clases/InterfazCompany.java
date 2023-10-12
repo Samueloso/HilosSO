@@ -28,6 +28,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -369,7 +370,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         AgregarDeadline = new javax.swing.JButton();
         Deadday = new javax.swing.JTextField();
         LabelDevelop3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        PastelButton = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         GuionCapcomLabel1 = new javax.swing.JLabel();
@@ -988,13 +989,16 @@ public class InterfazCompany extends javax.swing.JFrame {
         LabelDevelop3.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Downloads\\Capcom-logo.png")); // NOI18N
         jPanel1.add(LabelDevelop3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 296, 63));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        PastelButton.setBackground(new java.awt.Color(255, 51, 153));
+        PastelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        PastelButton.setForeground(new java.awt.Color(0, 0, 0));
+        PastelButton.setText("Pastel");
+        PastelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                PastelButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, -1, -1));
+        jPanel1.add(PastelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 90, 40));
 
         jTabbedPane3.addTab("Configuraciones iniciales", jPanel1);
 
@@ -1834,55 +1838,56 @@ int dcon=0;
  
     public void Graficadora(){}
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void PastelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PastelButtonActionPerformed
         // TODO add your handling code here:
         
-                JFreeChart grafico =null;
+        JFreeChart grafico =null;
         //DefaultCategoryDataset datos = new DefaultCategoryDataset();
-        //DefaultPieDataset datos = new DefaultPieDataset();
-       // int ganancia =Integer.parseInt(GananaciasSQE.getText());
-       // int ganaciaCamcom= Integer.parseInt(GananciasTexto.getText());
+
        // datos.addValue(ganancia,"Grafico","ganacia");
         //datos.addValue(ganaciaCamcom,"Grafico","ganacia2");
-        //datos.setValue("Capcom", ganaciaCamcom);
-       // datos.setValue("SQ", ganancia);
+        //*****************Se crea Pie
+       DefaultPieDataset datos = new DefaultPieDataset();
+       int ganancia =Integer.parseInt(GananaciasSQE.getText());
+       int ganaciaCamcom= Integer.parseInt(GananciasTexto.getText());
+        datos.setValue("Capcom", ganaciaCamcom);
+        datos.setValue("SQ", ganancia);
+        grafico = ChartFactory.createPieChart("Grafica para numero de dias:"+ C0.getDay(),datos,true,true,false);
+        ChartFrame frame = new ChartFrame("Ejemplo",grafico);
+        frame.pack();
+        frame.setVisible(true);
+
        
 
         
         //grafico = ChartFactory.createLineChart("Grafico","Eje x", "Eje y", series ,PlotOrientation.VERTICAL,true,true,false);
-        //grafico = ChartFactory.createPieChart("Grafica",datos,true,true,false);
-        
-        
-         XYSeries series= new XYSeries("utilidad vs tiempo");
-                
-           
+         //XYSeries series= new XYSeries("utilidad vs tiempo");        
+        //int ganancia =Integer.parseInt(this.GananaciasSQE.getText());
+        //int gananciaC =Integer.parseInt(this.GananciasTexto.getText());
+        //series.add(1,dd1);
+       // series.add(gananciaC,dd1);
 
-        int ganancia =Integer.parseInt(this.GananaciasSQE.getText());
-        int gananciaC =Integer.parseInt(this.GananciasTexto.getText());
-        series.add(ganancia,this.dd1);
-        series.add(gananciaC,this.dd1);
-  
+        
                 
-    XYSeriesCollection dataset =new XYSeriesCollection();
-   dataset.addSeries(series);
+    //XYSeriesCollection dataset =new XYSeriesCollection();
+   ///dataset.addSeries(series);
 
                 
   
-               JFreeChart chart = ChartFactory.createXYLineChart(
-                "Utilidad vs Tiempo",
-                "Tiempo",
-                "Utilidad",
-                dataset
-        );
+               //JFreeChart chart = ChartFactory.createXYLineChart(
+                //"Utilidad vs Tiempo",
+                //"Tiempo",
+                //"Utilidad",
+                //dataset
+        //);
+
+      
+        
 
         
 
         
-        
-        ChartFrame frame = new ChartFrame("Ejemplo",chart);
-        frame.pack();
-        frame.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_PastelButtonActionPerformed
 
     public String Seleccionador_lectura() {
         String texto = "";
@@ -2085,6 +2090,7 @@ int dcon=0;
     private javax.swing.JTextField NivelesTexto;
     private javax.swing.JTextField PMTexto;
     private javax.swing.JTextField PM_SQE;
+    private javax.swing.JButton PastelButton;
     private javax.swing.JButton QuitarNarrativaBTN;
     private javax.swing.JButton QuitarNarrativaBTNSE;
     private javax.swing.JButton RestarDLCBTN;
@@ -2112,7 +2118,6 @@ int dcon=0;
     private javax.swing.JButton agregarNarrativaBTN;
     private javax.swing.JButton agregarNarrativaBTNSE;
     private javax.swing.JTextField costs;
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;

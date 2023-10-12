@@ -180,5 +180,9 @@ public class Company {
         this.name = name;
     }
     
+    public int getDay(){
+       return dayduration;
+    }
+    
  
 }
