@@ -41,7 +41,6 @@ public class Mainsita {
 
         C0.Begin();
         //C1.Begin()
-            
        
        frame.setVisible(true);
         
