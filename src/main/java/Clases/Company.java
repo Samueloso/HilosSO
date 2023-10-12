@@ -180,7 +180,5 @@ public class Company {
         this.name = name;
     }
     
-    public void setDD(int daynumer){
-        this.dayduration=daynumer;
-    }
+ 
 }

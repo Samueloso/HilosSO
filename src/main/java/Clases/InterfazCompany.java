@@ -22,6 +22,14 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
@@ -361,6 +369,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         AgregarDeadline = new javax.swing.JButton();
         Deadday = new javax.swing.JTextField();
         LabelDevelop3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         GuionCapcomLabel1 = new javax.swing.JLabel();
@@ -486,6 +495,9 @@ public class InterfazCompany extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane3.setBackground(new java.awt.Color(153, 255, 255));
+        jTabbedPane3.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -976,6 +988,14 @@ public class InterfazCompany extends javax.swing.JFrame {
         LabelDevelop3.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Downloads\\Capcom-logo.png")); // NOI18N
         jPanel1.add(LabelDevelop3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 296, 63));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, -1, -1));
+
         jTabbedPane3.addTab("Configuraciones iniciales", jPanel1);
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1089,6 +1109,11 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         GananaciasSQE.setEditable(false);
         GananaciasSQE.setBackground(new java.awt.Color(255, 255, 255));
+        GananaciasSQE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GananaciasSQEActionPerformed(evt);
+            }
+        });
         jPanel8.add(GananaciasSQE, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 444, 210, 32));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
@@ -1249,8 +1274,8 @@ public class InterfazCompany extends javax.swing.JFrame {
         jPanel6.add(DirectorTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 186, 219, 39));
 
         jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel11.setText("GANANCIAS:");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 130, -1));
+        jLabel11.setText("Utilidad Total");
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 130, -1));
 
         GananciasTexto.setEditable(false);
         GananciasTexto.setBackground(new java.awt.Color(255, 255, 255));
@@ -1349,6 +1374,8 @@ public class InterfazCompany extends javax.swing.JFrame {
         lectura_data();
         C0.Begin();
         C1.Begin();
+;
+  
     }//GEN-LAST:event_LecturaDeDatosActionPerformed
 
     private void RestarIntegradorSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarIntegradorSEActionPerformed
@@ -1786,6 +1813,77 @@ int dcon=0;
         // TODO add your handling code here:
     }//GEN-LAST:event_DeaddayActionPerformed
 
+    private void GananaciasSQEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GananaciasSQEActionPerformed
+        // TODO add your handling code here:
+        while(this.dd1<30){
+
+        int ganancia =Integer.parseInt(GananaciasSQE.getText());
+        XYSeries series= new XYSeries("utilidad vs tiempo");
+        series.add(ganancia,this.dd1);
+        XYSeriesCollection dataset =new XYSeriesCollection();
+        dataset.addSeries(series);
+                JFreeChart chart = ChartFactory.createXYLineChart(
+                "Utilidad vs Tiempo",
+                "Tiempo",
+                "Utilidad",
+                dataset
+        );
+        }
+        
+    }//GEN-LAST:event_GananaciasSQEActionPerformed
+ 
+    public void Graficadora(){}
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+                JFreeChart grafico =null;
+        //DefaultCategoryDataset datos = new DefaultCategoryDataset();
+        //DefaultPieDataset datos = new DefaultPieDataset();
+       // int ganancia =Integer.parseInt(GananaciasSQE.getText());
+       // int ganaciaCamcom= Integer.parseInt(GananciasTexto.getText());
+       // datos.addValue(ganancia,"Grafico","ganacia");
+        //datos.addValue(ganaciaCamcom,"Grafico","ganacia2");
+        //datos.setValue("Capcom", ganaciaCamcom);
+       // datos.setValue("SQ", ganancia);
+       
+
+        
+        //grafico = ChartFactory.createLineChart("Grafico","Eje x", "Eje y", series ,PlotOrientation.VERTICAL,true,true,false);
+        //grafico = ChartFactory.createPieChart("Grafica",datos,true,true,false);
+        
+        
+         XYSeries series= new XYSeries("utilidad vs tiempo");
+                
+           
+
+        int ganancia =Integer.parseInt(this.GananaciasSQE.getText());
+        int gananciaC =Integer.parseInt(this.GananciasTexto.getText());
+        series.add(ganancia,this.dd1);
+        series.add(gananciaC,this.dd1);
+  
+                
+    XYSeriesCollection dataset =new XYSeriesCollection();
+   dataset.addSeries(series);
+
+                
+  
+               JFreeChart chart = ChartFactory.createXYLineChart(
+                "Utilidad vs Tiempo",
+                "Tiempo",
+                "Utilidad",
+                dataset
+        );
+
+        
+
+        
+        
+        ChartFrame frame = new ChartFrame("Ejemplo",chart);
+        frame.pack();
+        frame.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public String Seleccionador_lectura() {
         String texto = "";
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
@@ -1917,6 +2015,8 @@ int dcon=0;
             public void run() {
                 new InterfazCompany().setVisible(true);
                 
+                
+                
             }
         }
         );
@@ -2012,6 +2112,7 @@ int dcon=0;
     private javax.swing.JButton agregarNarrativaBTN;
     private javax.swing.JButton agregarNarrativaBTNSE;
     private javax.swing.JTextField costs;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
