@@ -91,7 +91,7 @@ public class ProjectManager extends Thread {
      */
     public void setStatus(String status) {
         this.status = status;
-        if ("Capcom".equals(comp.name)){
+        if ("Capcom".equals(comp.getName())){
             IC.setPMTexto(String.valueOf(status));
         } else {
             IC.setPM_SQE(String.valueOf(status));

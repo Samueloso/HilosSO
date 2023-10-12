@@ -14,7 +14,7 @@ public class Company {
 
     private int dayduration;
     private int deadline;
-    public String name;
+    private String name;
     private int nworkers;
     private int[] sueldos = {10, 13, 20, 8, 17, 25};
     private Developers narrative;
