@@ -381,7 +381,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         LabelDevelop3 = new javax.swing.JLabel();
         PastelButton = new javax.swing.JButton();
         DayCorre = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
+        LineaGrafica = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         GuionCapcomLabel1 = new javax.swing.JLabel();
@@ -594,7 +594,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 agregarNarrativaBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(agregarNarrativaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 50, 50));
+        jPanel1.add(agregarNarrativaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 40, 40));
 
         QuitarNarrativaBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         QuitarNarrativaBTN.setText("-");
@@ -603,7 +603,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 QuitarNarrativaBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(QuitarNarrativaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 40, 40));
+        jPanel1.add(QuitarNarrativaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 40, 40));
 
         AgregarNivelesBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         AgregarNivelesBTN.setText("+");
@@ -612,7 +612,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarNivelesBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarNivelesBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 50, 50));
+        jPanel1.add(AgregarNivelesBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 40, 40));
 
         AgregarLogicaBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         AgregarLogicaBTN.setText("+");
@@ -621,7 +621,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarLogicaBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarLogicaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 50, 50));
+        jPanel1.add(AgregarLogicaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 40, 40));
 
         AgregarIntegradorBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         AgregarIntegradorBTN.setText("+");
@@ -630,7 +630,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarIntegradorBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarIntegradorBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 630, 50, 50));
+        jPanel1.add(AgregarIntegradorBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 640, 40, 40));
 
         AgregarDLCBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         AgregarDLCBTN.setText("+");
@@ -639,7 +639,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarDLCBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarDLCBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 50, 50));
+        jPanel1.add(AgregarDLCBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 40, 40));
 
         RestarNivelesBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarNivelesBTN.setText("-");
@@ -648,7 +648,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 RestarNivelesBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(RestarNivelesBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 40, 40));
+        jPanel1.add(RestarNivelesBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 40, 40));
 
         RestarLogicaBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarLogicaBTN.setText("-");
@@ -657,7 +657,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 RestarLogicaBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(RestarLogicaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 40, 40));
+        jPanel1.add(RestarLogicaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, 40, 40));
 
         RestarDLCBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarDLCBTN.setText("-");
@@ -771,7 +771,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarSpriteBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarSpriteBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 50, 50));
+        jPanel1.add(AgregarSpriteBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 40, 40));
 
         RestarSpriteBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarSpriteBTN.setText("-");
@@ -780,7 +780,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 RestarSpriteBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(RestarSpriteBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, 40, 40));
+        jPanel1.add(RestarSpriteBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 40, 40));
 
         LogicaLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         LogicaLabel3.setText("Sprites");
@@ -818,7 +818,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 agregarNarrativaBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(agregarNarrativaBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 220, 50, 50));
+        jPanel1.add(agregarNarrativaBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 220, 40, 40));
 
         QuitarNarrativaBTNSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         QuitarNarrativaBTNSE.setText("-");
@@ -836,7 +836,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarNivelesBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarNivelesBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 300, 50, 50));
+        jPanel1.add(AgregarNivelesBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 300, 40, 40));
 
         RestarNivelesBTNSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarNivelesBTNSE.setText("-");
@@ -855,7 +855,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarSpriteBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarSpriteBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 370, 50, 50));
+        jPanel1.add(AgregarSpriteBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 370, 40, 40));
 
         RestarSpriteBTNSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarSpriteBTNSE.setText("-");
@@ -864,7 +864,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 RestarSpriteBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(RestarSpriteBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 380, 40, 40));
+        jPanel1.add(RestarSpriteBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 370, 40, 40));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 330, 10));
 
         AgregarLogicaBTNSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -874,7 +874,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarLogicaBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarLogicaBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 460, 50, 50));
+        jPanel1.add(AgregarLogicaBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 460, 40, 40));
 
         RestarLogicaBTNSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarLogicaBTNSE.setText("-");
@@ -883,7 +883,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 RestarLogicaBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(RestarLogicaBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 470, 40, 40));
+        jPanel1.add(RestarLogicaBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 460, 40, 40));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 320, 10));
 
         AgregarDLCBTNSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -893,7 +893,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarDLCBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarDLCBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 550, 50, 50));
+        jPanel1.add(AgregarDLCBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 560, 40, 40));
 
         RestarDLCBTNSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarDLCBTNSE.setText("-");
@@ -912,7 +912,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 AgregarIntegradorBTNSEActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarIntegradorBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 630, 50, 50));
+        jPanel1.add(AgregarIntegradorBTNSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 640, 40, 40));
 
         RestarIntegradorSE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RestarIntegradorSE.setText("-");
@@ -939,8 +939,6 @@ public class InterfazCompany extends javax.swing.JFrame {
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
 
         Dayduration.setBackground(java.awt.Color.white);
-        Dayduration.setText("1");
-        Dayduration.setEnabled(false);
         Dayduration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DaydurationActionPerformed(evt);
@@ -991,8 +989,6 @@ public class InterfazCompany extends javax.swing.JFrame {
         jPanel1.add(AgregarDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 70, 30));
 
         Deadday.setBackground(new java.awt.Color(255, 255, 255));
-        Deadday.setText("1");
-        Deadday.setEnabled(false);
         Deadday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeaddayActionPerformed(evt);
@@ -1023,9 +1019,13 @@ public class InterfazCompany extends javax.swing.JFrame {
         });
         jPanel1.add(DayCorre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 140, -1));
 
-        jLabel27.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel27.setText("Dias Transcurridos");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 130, 40));
+        LineaGrafica.setText("Linea");
+        LineaGrafica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LineaGraficaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LineaGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
 
         jTabbedPane3.addTab("Configuraciones iniciales", jPanel1);
 
@@ -1877,7 +1877,7 @@ int dcon=0;
        int ganancia =Integer.parseInt(GananaciasSQE.getText());
        int ganaciaCamcom= Integer.parseInt(GananciasTexto.getText());
         datos.setValue("Capcom", ganaciaCamcom);
-        datos.setValue("SquareEnix", ganancia);
+        datos.setValue("SQ", ganancia);
         grafico = ChartFactory.createPieChart("Grafica para numero de dias:" + DayCorre.getText() ,datos,true,true,false);
         ChartFrame frame = new ChartFrame("Ejemplo",grafico);
         frame.pack();
@@ -1917,11 +1917,10 @@ int dcon=0;
 
     private void DayCorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayCorreActionPerformed
         // TODO add your handling code here:
-        
-                // TODO add your handling code here:
-        
-        // Aqui se deberia desplegar un Linear Grafico
-        
+    }//GEN-LAST:event_DayCorreActionPerformed
+
+    private void LineaGraficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LineaGraficaActionPerformed
+        // TODO add your handling code here:
         
         
         //XYSeries series= new XYSeries("utilidad vs tiempo");
@@ -1945,20 +1944,25 @@ int dcon=0;
         //frame.pack();
        // frame.setVisible(true);
        
-       //JFreeChart grafico = null;
-       //DefaultCategoryDataset datos= new  DefaultCategoryDataset();
-       //int dato1 = Integer.parseInt(this.GananaciasSQE.getText());
-       //int dato2 = Integer.parseInt(this.GananciasTexto.getText());
+       JFreeChart grafico = null;
+       DefaultCategoryDataset datos= new  DefaultCategoryDataset();
+       int dato1 = Integer.parseInt(this.GananaciasSQE.getText());
+       int dato2 = Integer.parseInt(this.GananciasTexto.getText());
        
-      // grafico= ChartFactory.createLineChart("Hola", "X", "y", datos, PlotOrientation.VERTICAL, true, true, false);
+       grafico= ChartFactory.createLineChart("Hola", "X", "y", datos, PlotOrientation.VERTICAL, true, true, false);
        
-       //ChartPanel cPanel = new ChartPanel(grafico);
-       //JFrame information = new JFrame("Grafica");
-       //information.getContentPane().add(cPanel);
-       //information.setVisible(true);
+       ChartPanel cPanel = new ChartPanel(grafico);
+       JFrame information = new JFrame("Grafica");
+       information.getContentPane().add(cPanel);
+       information.setVisible(true);
        
         
-    }//GEN-LAST:event_DayCorreActionPerformed
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_LineaGraficaActionPerformed
 
     public String Seleccionador_lectura() {
         String texto = "";
@@ -2149,6 +2153,7 @@ int dcon=0;
     private javax.swing.JLabel LabelDevelop;
     private javax.swing.JLabel LabelDevelop3;
     private javax.swing.JButton LecturaDeDatos;
+    private javax.swing.JButton LineaGrafica;
     private javax.swing.JLabel LogicaLabel;
     private javax.swing.JLabel LogicaLabel1;
     private javax.swing.JLabel LogicaLabel2;
@@ -2211,7 +2216,6 @@ int dcon=0;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
