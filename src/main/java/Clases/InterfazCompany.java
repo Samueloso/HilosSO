@@ -382,6 +382,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         PastelButton = new javax.swing.JButton();
         DayCorre = new javax.swing.JTextField();
         LineaGrafica = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         GuionCapcomLabel1 = new javax.swing.JLabel();
@@ -939,6 +940,8 @@ public class InterfazCompany extends javax.swing.JFrame {
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
 
         Dayduration.setBackground(java.awt.Color.white);
+        Dayduration.setText("1");
+        Dayduration.setEnabled(false);
         Dayduration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DaydurationActionPerformed(evt);
@@ -989,6 +992,8 @@ public class InterfazCompany extends javax.swing.JFrame {
         jPanel1.add(AgregarDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 70, 30));
 
         Deadday.setBackground(new java.awt.Color(255, 255, 255));
+        Deadday.setText("1");
+        Deadday.setEnabled(false);
         Deadday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeaddayActionPerformed(evt);
@@ -1026,6 +1031,10 @@ public class InterfazCompany extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LineaGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel27.setText("Dias Transcurridos");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 130, 40));
 
         jTabbedPane3.addTab("Configuraciones iniciales", jPanel1);
 
@@ -1877,7 +1886,7 @@ int dcon=0;
        int ganancia =Integer.parseInt(GananaciasSQE.getText());
        int ganaciaCamcom= Integer.parseInt(GananciasTexto.getText());
         datos.setValue("Capcom", ganaciaCamcom);
-        datos.setValue("SQ", ganancia);
+        datos.setValue("SquareEnix", ganancia);
         grafico = ChartFactory.createPieChart("Grafica para numero de dias:" + DayCorre.getText() ,datos,true,true,false);
         ChartFrame frame = new ChartFrame("Ejemplo",grafico);
         frame.pack();
@@ -1921,6 +1930,9 @@ int dcon=0;
 
     private void LineaGraficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LineaGraficaActionPerformed
         // TODO add your handling code here:
+        
+        // Aqui se deberia desplegar un Linear Grafico
+        
         
         
         //XYSeries series= new XYSeries("utilidad vs tiempo");
@@ -2216,6 +2228,7 @@ int dcon=0;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
