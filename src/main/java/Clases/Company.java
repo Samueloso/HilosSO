@@ -14,7 +14,7 @@ public class Company {
 
     private int dayduration;
     private int deadline;
-    private String name;
+    public String name;
     private int nworkers;
     private int[] sueldos = {10, 13, 20, 8, 17, 25};
     private Developers narrative;
@@ -39,12 +39,12 @@ public class Company {
         this.name = name;
         this.nworkers = Nw;
         this.inits = inits;
-        this.narrative = new Developers(0, dd, sueldos[0], nl, drive, sem, this);
-        this.level = new Developers(1, dd, sueldos[1], nl, drive, sem, this);
-        this.sprite = new Developers(2, dd, sueldos[2], s, drive, sem, this);
-        this.logic = new Developers(3, dd, sueldos[3], l, drive, sem, this);
-        this.dlc = new Developers(4, dd, sueldos[4], d, drive, sem, this);
-        this.integrator = new Developers(5, dd, sueldos[5], 0.5f, drive, sem, this);
+        this.narrative = new Developers(0, dd, sueldos[0], nl, drive, sem, this,IC);
+        this.level = new Developers(1, dd, sueldos[1], nl, drive, sem, this,IC);
+        this.sprite = new Developers(2, dd, sueldos[2], s, drive, sem, this,IC);
+        this.logic = new Developers(3, dd, sueldos[3], l, drive, sem, this,IC);
+        this.dlc = new Developers(4, dd, sueldos[4], d, drive, sem, this,IC);
+        this.integrator = new Developers(5, dd, sueldos[5], 0.5f, drive, sem, this,IC);
         this.pm = new ProjectManager(dd, sem, this, IC);
         this.director = new Director(dd, dl, stonks[0], stonks[1], drive, sem, this, this.pm, IC);
         this.drive = drive;
@@ -180,5 +180,11 @@ public class Company {
         this.name = name;
     }
     
+    public void SetDia(int d){
+    
+        this.dayduration=d;
+        IC.setDay(d);
+    }
+
  
 }

@@ -77,7 +77,7 @@ public class Director extends Thread {
                             atrapadas++;
                             int admonition = 50;
                             comp.UpdateProfit(admonition);
-                            if ("Capcom".equals(comp.getName())) {
+                            if ("Capcom".equals(comp.name)) {
                                 IC.setNumber(String.valueOf(atrapadas));
                                 IC.setMoney_pm(String.valueOf(atrapadas*admonition));
                             } else {
@@ -112,7 +112,7 @@ public class Director extends Thread {
      */
     public void setStatus(String status) {
         this.status = status;
-        if ("Capcom".equals(comp.getName())) {
+        if ("Capcom".equals(comp.name)) {
             IC.setDirectorTexto(String.valueOf(status));
         } else {
             IC.setDirectorSQE(String.valueOf(status));
