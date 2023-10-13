@@ -244,6 +244,20 @@ public class InterfazCompany extends javax.swing.JFrame {
     public void setSQESpriteTexto(String t) {
         this.SQESpriteTexto.setText(t);
     }
+    
+     /**
+     * @return the init_developer1
+     */
+    public int getInit_developer1(int type) {
+        return init_developer1[type];
+    }
+
+    /**
+     * @return the init_developer2
+     */
+    public int getInit_developer2(int type) {
+        return init_developer2[type];
+    }
 
     JFileChooser jfc = new JFileChooser();
     File archivo;

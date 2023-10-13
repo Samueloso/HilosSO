@@ -33,18 +33,17 @@ public class Developers extends Thread {
         this.drive = drive;
         this.sema = sem;
         this.comp = comp;
-        this.IC=IC;
+        this.IC = IC;
     }
 
     @Override
     public void run() {
         while (true) {
             try {
-                
+
                 Work();
-                
+
                 sleep(dayDuration);
-                
 
             } catch (InterruptedException ex) {
                 Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,37 +51,40 @@ public class Developers extends Thread {
         }
 
     }
-    int conto=1;
+    int conto = 1;
+
     public void Work() throws InterruptedException {
-         sema.acquire(1);
-        
+        sema.acquire(1);
+
         IC.setDay(conto);
-         conto++;
-         sema.release();
-        
-        int Nworkers = comp.getInits(type);
-        System.out.println(Nworkers + "--:" + type);
-        cumulo += productPerDay * Nworkers;
+        conto++;
+        sema.release();
+        int Nworkers;
+        if ("Capcom".equals(comp.name)) {
+            Nworkers = IC.getInit_developer1(type);
+        } else {
+            Nworkers = IC.getInit_developer2(type);
+        }
+            cumulo += productPerDay * Nworkers;
 
-        if (cumulo >= 1) {
-            try {
-                float temp = cumulo % 1;
-                int integer = (int) (cumulo - temp);
-                sema.acquire(1);
+            if (cumulo >= 1) {
+                try {
+                    float temp = cumulo % 1;
+                    int integer = (int) (cumulo - temp);
+                    sema.acquire(1);
 
-                drive.addProduct(integer, type);
-                cumulo = temp;
-                comp.UpdateCosts(sueldo * Nworkers * 24);
-                sema.release();
+                    drive.addProduct(integer, type);
+                    cumulo = temp;
+                    comp.UpdateCosts(sueldo * Nworkers * 24);
+                    sema.release();
 
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
 
-        }
-        
 //        System.out.println(drive.getNarrative() + "----" + drive.getLevels() + "--" + drive.getSprites() + "--" + drive.getLogic() + "--" + drive.getDLC() + "***" + drive.getGames() + "***" + drive.getGamesDLC());
+        }
 
     }
-
-}
