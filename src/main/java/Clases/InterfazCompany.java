@@ -7,18 +7,9 @@ package Clases;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -28,10 +19,8 @@ import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -40,220 +29,217 @@ import org.jfree.data.xy.XYSeriesCollection;
  * @author samue
  */
 public class InterfazCompany extends javax.swing.JFrame {
-    
-  
 
     /**
-     * @param LogicoTexto the LogicoTexto to set
+     * @param t
      */
     public void setLogicoTexto(String t) {
         this.LogicoTexto.setText(t);
     }
 
     /**
-     * @param DE_Texto the DE_Texto to set
+     * @param t
      */
     public void setDE_Texto(String t) {
         this.DE_Texto.setText(t);
     }
 
     /**
-     * @param DLCTexto the DLCTexto to set
+     * @param t
      */
     public void setDLCTexto(String t) {
         this.DLCTexto.setText(t);
     }
 
     /**
-     * @param DirectorTexto the DirectorTexto to set
+     * @param t
      */
     public void setDirectorTexto(String t) {
         this.DirectorTexto.setText(t);
     }
 
     /**
-     * @param GananciasTexto the GananciasTexto to set
+     * @param t
      */
     public void setGananciasTexto(String t) {
         this.GananciasTexto.setText(t);
     }
 
     /**
-     * @param JuegosDLCTexto the JuegosDLCTexto to set
+     * @param t
      */
     public void setJuegosDLCTexto(String t) {
         this.JuegosDLCTexto.setText(t);
     }
 
     /**
-     * @param JuegosTexto the JuegosTexto to set
+     * @param t
      */
     public void setJuegosTexto(String t) {
         this.JuegosTexto.setText(t);
     }
 
     /**
-     * @param NarrativaTexto the NarrativaTexto to set
+     * @param t
      */
     public void setNarrativaTexto(String t) {
         this.NarrativaTexto.setText(t);
     }
 
     /**
-     * @param NivelesTexto the NivelesTexto to set
+     * @param t
      */
     public void setNivelesTexto(String t) {
         this.NivelesTexto.setText(t);
     }
 
     /**
-     * @param PMTexto the PMTexto to set
+     * @param t
      */
     public void setPMTexto(String t) {
         this.PMTexto.setText(t);
     }
 
     /**
-     * @param SQEcosts the SQEcosts to set
+     * @param t
      */
     public void setSQEcosts(String t) {
         this.SQEcosts.setText(t);
     }
 
     /**
-     * @param SQEmoney_pm the SQEmoney_pm to set
+     * @param t
      */
     public void setSQEmoney_pm(String t) {
         this.SQEmoney_pm.setText(t);
     }
 
     /**
-     * @param SQEnumber the SQEnumber to set
+     * @param t
      */
     public void setSQEnumber(String t) {
         this.SQEnumber.setText(t);
     }
 
     /**
-     * @param SQEstonks the SQEstonks to set
+     * @param t
      */
     public void setSQEstonks(String t) {
         this.SQEstonks.setText(t);
     }
 
     /**
-     * @param SpriteTexto the SpriteTexto to set
+     * @param t
      */
     public void setSpriteTexto(String t) {
         this.SpriteTexto.setText(t);
     }
 
     /**
-     * @param costs the costs to set
+     * @param t
      */
     public void setCosts(String t) {
         this.costs.setText(t);
     }
 
     /**
-     * @param money_pm the money_pm to set
+     * @param t
      */
     public void setMoney_pm(String t) {
         this.money_pm.setText(t);
     }
 
     /**
-     * @param number the number to set
+     * @param t
      */
     public void setNumber(String t) {
         this.number.setText(t);
     }
 
     /**
-     * @param stonks the stonks to set
+     * @param t
      */
     public void setStonks(String t) {
         this.stonks.setText(t);
     }
 
     /**
-     * @param DE_SQE the DE_SQE to set
+     * @param t
      */
     public void setDE_SQE(String t) {
         this.DE_SQE.setText(t);
     }
 
     /**
-     * @param DirectorSQE the DirectorSQE to set
+     * @param t
      */
     public void setDirectorSQE(String t) {
         this.DirectorSQE.setText(t);
     }
 
     /**
-     * @param GananaciasSQE the GananaciasSQE to set
+     * @param t
      */
     public void setGananaciasSQE(String t) {
         this.GananaciasSQE.setText(t);
     }
 
     /**
-     * @param JuegosDLC_SQE the JuegosDLC_SQE to set
+     * @param t
      */
     public void setJuegosDLC_SQE(String t) {
         this.JuegosDLC_SQE.setText(t);
     }
 
     /**
-     * @param JuegosSQE the JuegosSQE to set
+     * @param t
      */
     public void setJuegosSQE(String t) {
         this.JuegosSQE.setText(t);
     }
 
     /**
-     * @param PM_SQE the PM_SQE to set
+     * @param t
      */
     public void setPM_SQE(String t) {
         this.PM_SQE.setText(t);
     }
 
     /**
-     * @param SQEGuionTexto the SQEGuionTexto to set
+     * @param t
      */
     public void setSQEGuionTexto(String t) {
         this.SQEGuionTexto.setText(t);
     }
 
     /**
-     * @param SQELogicaTexto the SQELogicaTexto to set
+     * @param t
      */
     public void setSQELogicaTexto(String t) {
         this.SQELogicaTexto.setText(t);
     }
 
     /**
-     * @param SQENivelTexto the SQENivelTexto to set
+     * @param t
      */
     public void setSQENivelTexto(String t) {
         this.SQENivelTexto.setText(t);
     }
 
     /**
-     * @param SQE_DLCTexto the SQE_DLCTexto to set
+     * @param t
      */
     public void setSQE_DLCTexto(String t) {
         this.SQE_DLCTexto.setText(t);
     }
-    
-    public void setDay(int d){
+
+    public void setDay(int d) {
         this.DayCorre.setText(Integer.toString(d));
-        
-        
+
     }
 
     /**
-     * @param SQESpriteTexto the SQESpriteTexto to set
+     * @param t
      */
     public void setSQESpriteTexto(String t) {
         this.SQESpriteTexto.setText(t);
@@ -381,7 +367,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         LabelDevelop3 = new javax.swing.JLabel();
         PastelButton = new javax.swing.JButton();
         DayCorre = new javax.swing.JTextField();
-        LineaGrafica = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         GuionCapcomLabel1 = new javax.swing.JLabel();
@@ -413,6 +399,14 @@ public class InterfazCompany extends javax.swing.JFrame {
         SQEstonks = new javax.swing.JTextField();
         SQEcosts = new javax.swing.JTextField();
         SQEmoney_pm = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         GuionCapcomLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -443,6 +437,14 @@ public class InterfazCompany extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         costs = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -509,12 +511,10 @@ public class InterfazCompany extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane3.setBackground(new java.awt.Color(153, 255, 255));
-        jTabbedPane3.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelDevelop.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        LabelDevelop.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Downloads\\Logoescuare.jpg")); // NOI18N
         jPanel1.add(LabelDevelop, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, -1, 82));
 
         narrativaLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -670,8 +670,7 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         CargarDatos.setBackground(new java.awt.Color(255, 0, 0));
         CargarDatos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        CargarDatos.setForeground(new java.awt.Color(0, 0, 0));
-        CargarDatos.setText("Cargar Datos");
+        CargarDatos.setText("Guardar Datos");
         CargarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CargarDatosActionPerformed(evt);
@@ -925,7 +924,6 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         LecturaDeDatos.setBackground(new java.awt.Color(51, 255, 51));
         LecturaDeDatos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        LecturaDeDatos.setForeground(new java.awt.Color(0, 0, 0));
         LecturaDeDatos.setText("Lectura de Datos");
         LecturaDeDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -938,7 +936,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         jLabel25.setText("Day Duration");
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
 
-        Dayduration.setBackground(java.awt.Color.white);
+        Dayduration.setEditable(false);
         Dayduration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DaydurationActionPerformed(evt);
@@ -988,7 +986,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         });
         jPanel1.add(AgregarDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 70, 30));
 
-        Deadday.setBackground(new java.awt.Color(255, 255, 255));
+        Deadday.setEditable(false);
         Deadday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeaddayActionPerformed(evt);
@@ -997,12 +995,10 @@ public class InterfazCompany extends javax.swing.JFrame {
         jPanel1.add(Deadday, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 140, -1));
 
         LabelDevelop3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        LabelDevelop3.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Downloads\\Capcom-logo.png")); // NOI18N
         jPanel1.add(LabelDevelop3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 296, 63));
 
         PastelButton.setBackground(new java.awt.Color(255, 51, 153));
         PastelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        PastelButton.setForeground(new java.awt.Color(0, 0, 0));
         PastelButton.setText("Pastel");
         PastelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1011,7 +1007,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         });
         jPanel1.add(PastelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, 90, 40));
 
-        DayCorre.setBackground(new java.awt.Color(255, 255, 255));
+        DayCorre.setEditable(false);
         DayCorre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DayCorreActionPerformed(evt);
@@ -1019,13 +1015,9 @@ public class InterfazCompany extends javax.swing.JFrame {
         });
         jPanel1.add(DayCorre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 140, -1));
 
-        LineaGrafica.setText("Linea");
-        LineaGrafica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LineaGraficaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(LineaGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
+        jLabel37.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel37.setText("Días transcurridos");
+        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         jTabbedPane3.addTab("Configuraciones iniciales", jPanel1);
 
@@ -1067,7 +1059,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 SQEGuionTextoActionPerformed(evt);
             }
         });
-        jPanel8.add(SQEGuionTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 146, -1));
+        jPanel8.add(SQEGuionTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 110, -1));
 
         JuegosSQE.setEditable(false);
         JuegosSQE.setBackground(new java.awt.Color(255, 255, 255));
@@ -1085,22 +1077,22 @@ public class InterfazCompany extends javax.swing.JFrame {
         SQENivelTexto.setEditable(false);
         SQENivelTexto.setBackground(new java.awt.Color(255, 255, 255));
         SQENivelTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel8.add(SQENivelTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 146, -1));
+        jPanel8.add(SQENivelTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 110, -1));
 
         SQESpriteTexto.setEditable(false);
         SQESpriteTexto.setBackground(new java.awt.Color(255, 255, 255));
         SQESpriteTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel8.add(SQESpriteTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 146, -1));
+        jPanel8.add(SQESpriteTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 110, -1));
 
         SQE_DLCTexto.setEditable(false);
         SQE_DLCTexto.setBackground(new java.awt.Color(255, 255, 255));
         SQE_DLCTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel8.add(SQE_DLCTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 146, -1));
+        jPanel8.add(SQE_DLCTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 110, -1));
 
         SQELogicaTexto.setEditable(false);
         SQELogicaTexto.setBackground(new java.awt.Color(255, 255, 255));
         SQELogicaTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel8.add(SQELogicaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 264, 146, -1));
+        jPanel8.add(SQELogicaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 110, -1));
 
         jLabel16.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel16.setText("Dias Para La Entrega:");
@@ -1153,28 +1145,31 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         SQEnumber.setEditable(false);
         SQEnumber.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(SQEnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, -1, -1));
+        SQEnumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel8.add(SQEnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, 60, -1));
 
         jLabel20.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel20.setText("Ganancias en bruto:");
-        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 200, 30));
+        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 140, 30));
 
         jLabel21.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel21.setText("Costos operativos:");
-        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 150, 30));
+        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 130, 30));
 
         SQEstonks.setEditable(false);
         SQEstonks.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(SQEstonks, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, -1, -1));
+        SQEstonks.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel8.add(SQEstonks, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 270, 100, -1));
 
         SQEcosts.setEditable(false);
         SQEcosts.setBackground(new java.awt.Color(255, 255, 255));
+        SQEcosts.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SQEcosts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SQEcostsActionPerformed(evt);
             }
         });
-        jPanel8.add(SQEcosts, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, -1, -1));
+        jPanel8.add(SQEcosts, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 100, -1));
 
         SQEmoney_pm.setEditable(false);
         SQEmoney_pm.setBackground(new java.awt.Color(255, 255, 255));
@@ -1184,6 +1179,36 @@ public class InterfazCompany extends javax.swing.JFrame {
             }
         });
         jPanel8.add(SQEmoney_pm, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 150, 90, -1));
+
+        jLabel27.setText("/ 10");
+        jPanel8.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 30, 20));
+
+        jLabel28.setText("/ 25");
+        jPanel8.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 30, 20));
+
+        jLabel29.setText("/ 20");
+        jPanel8.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 30, 20));
+
+        jLabel30.setText("/ 55");
+        jPanel8.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 30, 20));
+
+        jLabel31.setText("/ 35");
+        jPanel8.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 30, 20));
+
+        jLabel38.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel38.setText("$");
+        jPanel8.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 30, 20));
+
+        jLabel40.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel40.setText("$");
+        jPanel8.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 30, -1));
+
+        jLabel41.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("$");
+        jPanel8.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 30, 20));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1237,7 +1262,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         NarrativaTexto.setEditable(false);
         NarrativaTexto.setBackground(new java.awt.Color(255, 255, 255));
         NarrativaTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel6.add(NarrativaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 146, -1));
+        jPanel6.add(NarrativaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 110, -1));
 
         JuegosTexto.setEditable(false);
         JuegosTexto.setBackground(new java.awt.Color(255, 255, 255));
@@ -1250,7 +1275,7 @@ public class InterfazCompany extends javax.swing.JFrame {
         NivelesTexto.setEditable(false);
         NivelesTexto.setBackground(new java.awt.Color(255, 255, 255));
         NivelesTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel6.add(NivelesTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 146, -1));
+        jPanel6.add(NivelesTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 110, -1));
 
         SpriteTexto.setEditable(false);
         SpriteTexto.setBackground(new java.awt.Color(255, 255, 255));
@@ -1260,12 +1285,12 @@ public class InterfazCompany extends javax.swing.JFrame {
                 SpriteTextoActionPerformed(evt);
             }
         });
-        jPanel6.add(SpriteTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 146, -1));
+        jPanel6.add(SpriteTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 110, -1));
 
         DLCTexto.setEditable(false);
         DLCTexto.setBackground(new java.awt.Color(255, 255, 255));
         DLCTexto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel6.add(DLCTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 146, -1));
+        jPanel6.add(DLCTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 110, -1));
 
         LogicoTexto.setEditable(false);
         LogicoTexto.setBackground(new java.awt.Color(255, 255, 255));
@@ -1275,7 +1300,7 @@ public class InterfazCompany extends javax.swing.JFrame {
                 LogicoTextoActionPerformed(evt);
             }
         });
-        jPanel6.add(LogicoTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 146, -1));
+        jPanel6.add(LogicoTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 110, -1));
 
         jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel8.setText("Dias Para La Entrega");
@@ -1305,25 +1330,26 @@ public class InterfazCompany extends javax.swing.JFrame {
         jPanel6.add(DirectorTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 186, 219, 39));
 
         jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel11.setText("Utilidad Total");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 130, -1));
+        jLabel11.setText("Utilidad Total:");
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 130, -1));
 
         GananciasTexto.setEditable(false);
         GananciasTexto.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(GananciasTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 446, 210, 45));
+        jPanel6.add(GananciasTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 210, 30));
 
         jLabel22.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel22.setText("Cantidad de faltas y dinero descontado:");
-        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 310, -1));
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 280, -1));
 
         number.setEditable(false);
         number.setBackground(new java.awt.Color(255, 255, 255));
+        number.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberActionPerformed(evt);
             }
         });
-        jPanel6.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, -1, -1));
+        jPanel6.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 60, -1));
 
         money_pm.setEditable(false);
         money_pm.setBackground(new java.awt.Color(255, 255, 255));
@@ -1336,19 +1362,51 @@ public class InterfazCompany extends javax.swing.JFrame {
 
         stonks.setEditable(false);
         stonks.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(stonks, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, -1, -1));
+        stonks.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel6.add(stonks, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 100, -1));
 
         jLabel23.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel23.setText("Ganancias en bruto:");
-        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 160, -1));
+        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 140, -1));
 
         jLabel24.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel24.setText("Costos operativos:");
-        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 140, -1));
+        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, 140, -1));
 
         costs.setEditable(false);
         costs.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(costs, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, -1, -1));
+        costs.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel6.add(costs, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 100, -1));
+
+        jLabel32.setText("/ 25");
+        jPanel6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 30, 20));
+
+        jLabel33.setText("/ 20");
+        jPanel6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 30, 20));
+
+        jLabel34.setText("/ 55");
+        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 30, 20));
+
+        jLabel35.setText("/ 35");
+        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 30, 20));
+
+        jLabel36.setText("/ 10");
+        jPanel6.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 30, 20));
+
+        jLabel39.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setText("$");
+        jPanel6.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 30, 30));
+
+        jLabel42.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("$");
+        jPanel6.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 30, 20));
+
+        jLabel43.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("$");
+        jPanel6.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, 30, 20));
 
         jTabbedPane3.addTab("CAPCOM", jPanel6);
 
@@ -1357,16 +1415,16 @@ public class InterfazCompany extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
+                .addContainerGap(152, Short.MAX_VALUE)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
+                .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(57, 57, 57)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         pack();
@@ -1402,11 +1460,14 @@ public class InterfazCompany extends javax.swing.JFrame {
 
     private void LecturaDeDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LecturaDeDatosActionPerformed
         // TODO add your handling code here:
-        lectura_data();
-        C0.Begin();
-        C1.Begin();
-;
-  
+        boolean data = lectura_data();
+        if (data) {
+            Deadday.setText(String.valueOf(dl));
+            Dayduration.setText(String.valueOf(dd1));
+            C0.Begin();
+            C1.Begin();
+        }
+
     }//GEN-LAST:event_LecturaDeDatosActionPerformed
 
     private void RestarIntegradorSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarIntegradorSEActionPerformed
@@ -1632,16 +1693,6 @@ public class InterfazCompany extends javax.swing.JFrame {
     private void CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarDatosActionPerformed
         // TODO add your handling code here:
         Escritura();
-        System.out.println(dd1 + "-" + dl);
-        System.out.println(init_developer1[0] + "-" + init_developer1[1] + "-" + init_developer1[2] + "-" + init_developer1[3] + "-" + init_developer1[4] + "-" + init_developer1[5]);
-        System.out.println(init_developer2[0] + "-" + init_developer2[1] + "-" + init_developer2[2] + "-" + init_developer2[3] + "-" + init_developer2[4] + "-" + init_developer2[5]);
-        System.out.println(dd1 + "-" + dl);
-        System.out.println(init_developer1[0] + "-" + init_developer1[1] + "-" + init_developer1[2] + "-" + init_developer1[3] + "-" + init_developer1[4] + "-" + init_developer1[5]);
-        System.out.println(init_developer2[0] + "-" + init_developer2[1] + "-" + init_developer2[2] + "-" + init_developer2[3] + "-" + init_developer2[4] + "-" + init_developer2[5]);
-        //        int[] cutom1 = {contadorNarrativa, contadorNiveles, contadorSprites, contadorLogica, contadorDLC, contadorIntegrador};
-        //        int[] cutom2 = {contadorNarrativaSE, contadorNivelesSE, contadorSpritesSE, contadorLogicaSE, contadorDLCSE, contadorIntegradorSE};
-        //        CargarTXT(cutom1, "CapcomCompany.txt");
-        //        CargarTXT(cutom2, "SquareEnixCompany.txt");
     }//GEN-LAST:event_CargarDatosActionPerformed
 
     private void RestarDLCBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarDLCBTNActionPerformed
@@ -1787,57 +1838,49 @@ public class InterfazCompany extends javax.swing.JFrame {
     private void SpriteTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpriteTextoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SpriteTextoActionPerformed
-int con=0;
+
     private void AnadirDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirDiasActionPerformed
         // TODO add your handling code here:
-       
-        if (con>=0){
-            
-            con++;
-            System.out.println(con);
-            Dayduration.setText(Integer.toString(con));
-            this.dd1=con
-                
-                ;}
-        
-        
+
+        if (dd1 >= 1 && dd1 < 5) {
+
+            dd1++;
+            System.out.println(dd1);
+            Dayduration.setText(Integer.toString(dd1));
+        }
+
+
     }//GEN-LAST:event_AnadirDiasActionPerformed
 
     private void RestarDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarDiasActionPerformed
         // TODO add your handling code here:
-             if (con>0){
+        if (dd1 > 1 && dd1 <= 5) {
+
+            dd1--;
+            System.out.println(dd1);
+            Dayduration.setText(Integer.toString(dd1));
             
-            con--;
-            System.out.println(con);
-            Dayduration.setText(Integer.toString(con));
-            this.dd1=con;
-                
-                
-                ;}
+        }
     }//GEN-LAST:event_RestarDiasActionPerformed
-int dcon=0;
+
     private void AgregarDeadlineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDeadlineActionPerformed
         // TODO add your handling code here:
-        if (dcon>=0){
-            
-            dcon++;
-            Deadday.setText(Integer.toString(dcon));
-            this.dl=dcon
-                
-                ;}
-                
-        
+        if (dl >= 1 && dl < 30) {
+
+            dl++;
+            Deadday.setText(Integer.toString(dl));
+        }
+
+
     }//GEN-LAST:event_AgregarDeadlineActionPerformed
 
     private void RestarDeadlineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestarDeadlineActionPerformed
         // TODO add your handling code here:
-        if (dcon>0){
-            
-            dcon--;
-            Deadday.setText(Integer.toString(dcon));
-            this.dl=dcon
-                
-                ;}
+        if (dl > 1 && dl <= 30) {
+
+            dl--;
+            Deadday.setText(Integer.toString(dl));
+        }
     }//GEN-LAST:event_RestarDeadlineActionPerformed
 
     private void DeaddayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeaddayActionPerformed
@@ -1846,123 +1889,63 @@ int dcon=0;
 
     private void GananaciasSQEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GananaciasSQEActionPerformed
         // TODO add your handling code here:
-        while(this.dd1<30){
+        while (this.dd1 < 30) {
 
-        int ganancia =Integer.parseInt(GananaciasSQE.getText());
-        XYSeries series= new XYSeries("utilidad vs tiempo");
-        series.add(ganancia,this.dd1);
-        XYSeriesCollection dataset =new XYSeriesCollection();
-        dataset.addSeries(series);
-                JFreeChart chart = ChartFactory.createXYLineChart(
-                "Utilidad vs Tiempo",
-                "Tiempo",
-                "Utilidad",
-                dataset
-        );
+            int ganancia = Integer.parseInt(GananaciasSQE.getText());
+            XYSeries series = new XYSeries("utilidad vs tiempo");
+            series.add(ganancia, this.dd1);
+            XYSeriesCollection dataset = new XYSeriesCollection();
+            dataset.addSeries(series);
+            JFreeChart chart = ChartFactory.createXYLineChart(
+                    "Utilidad vs Tiempo",
+                    "Tiempo",
+                    "Utilidad",
+                    dataset
+            );
         }
-        
+
     }//GEN-LAST:event_GananaciasSQEActionPerformed
 
 
     private void PastelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PastelButtonActionPerformed
         // TODO add your handling code here:
-        
-        JFreeChart grafico =null;
+
+        JFreeChart grafico;
         //DefaultCategoryDataset datos = new DefaultCategoryDataset();
 
-       // datos.addValue(ganancia,"Grafico","ganacia");
+        // datos.addValue(ganancia,"Grafico","ganacia");
         //datos.addValue(ganaciaCamcom,"Grafico","ganacia2");
         //*****************Se crea Pie
-       DefaultPieDataset datos = new DefaultPieDataset();
-       int ganancia =Integer.parseInt(GananaciasSQE.getText());
-       int ganaciaCamcom= Integer.parseInt(GananciasTexto.getText());
+        DefaultPieDataset datos = new DefaultPieDataset();
+        int ganancia = Integer.parseInt(GananaciasSQE.getText());
+        int ganaciaCamcom = Integer.parseInt(GananciasTexto.getText());
         datos.setValue("Capcom", ganaciaCamcom);
         datos.setValue("SQ", ganancia);
-        grafico = ChartFactory.createPieChart("Grafica para numero de dias:" + DayCorre.getText() ,datos,true,true,false);
-        ChartFrame frame = new ChartFrame("Ejemplo",grafico);
+        grafico = ChartFactory.createPieChart("Grafica para numero de dias:" + DayCorre.getText(), datos, true, true, false);
+        ChartFrame frame = new ChartFrame("Ejemplo", grafico);
         frame.pack();
         frame.setVisible(true);
 
-       
-
-        
         //grafico = ChartFactory.createLineChart("Grafico","Eje x", "Eje y", series ,PlotOrientation.VERTICAL,true,true,false);
-         //XYSeries series= new XYSeries("utilidad vs tiempo");        
+        //XYSeries series= new XYSeries("utilidad vs tiempo");        
         //int ganancia =Integer.parseInt(this.GananaciasSQE.getText());
         //int gananciaC =Integer.parseInt(this.GananciasTexto.getText());
         //series.add(1,dd1);
-       // series.add(gananciaC,dd1);
-
-        
-                
-    //XYSeriesCollection dataset =new XYSeriesCollection();
-   ///dataset.addSeries(series);
-
-                
-  
-               //JFreeChart chart = ChartFactory.createXYLineChart(
-                //"Utilidad vs Tiempo",
-                //"Tiempo",
-                //"Utilidad",
-                //dataset
+        // series.add(gananciaC,dd1);
+        //XYSeriesCollection dataset =new XYSeriesCollection();
+        ///dataset.addSeries(series);
+        //JFreeChart chart = ChartFactory.createXYLineChart(
+        //"Utilidad vs Tiempo",
+        //"Tiempo",
+        //"Utilidad",
+        //dataset
         //);
 
-      
-        
-
-        
-
-        
     }//GEN-LAST:event_PastelButtonActionPerformed
 
     private void DayCorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayCorreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DayCorreActionPerformed
-
-    private void LineaGraficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LineaGraficaActionPerformed
-        // TODO add your handling code here:
-        
-        
-        //XYSeries series= new XYSeries("utilidad vs tiempo");
-        //int ganancia =Integer.parseInt(this.GananaciasSQE.getText());
-        //int gananciaC =Integer.parseInt(this.GananciasTexto.getText());
-        //int dia= Integer.parseInt(DayCorre.getText());
-        //series.add(ganancia,dia);
-        //series.add(gananciaC,dia);
-        
-        //XYSeriesCollection dataset = new XYSeriesCollection();
-       // dataset.addSeries(series);
-        
-       //  JFreeChart chart = ChartFactory.createXYLineChart(
-                //"Utilidad vs Tiempo",
-                //"Tiempo",
-                //"Utilidad",
-                //dataset
-        //);
-        
-        //ChartFrame frame = new ChartFrame("Pueba",chart);
-        //frame.pack();
-       // frame.setVisible(true);
-       
-       JFreeChart grafico = null;
-       DefaultCategoryDataset datos= new  DefaultCategoryDataset();
-       int dato1 = Integer.parseInt(this.GananaciasSQE.getText());
-       int dato2 = Integer.parseInt(this.GananciasTexto.getText());
-       
-       grafico= ChartFactory.createLineChart("Hola", "X", "y", datos, PlotOrientation.VERTICAL, true, true, false);
-       
-       ChartPanel cPanel = new ChartPanel(grafico);
-       JFrame information = new JFrame("Grafica");
-       information.getContentPane().add(cPanel);
-       information.setVisible(true);
-       
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_LineaGraficaActionPerformed
 
     public String Seleccionador_lectura() {
         String texto = "";
@@ -2029,7 +2012,7 @@ int dcon=0;
         }
     }
 
-    public void lectura_data() {
+    public boolean lectura_data() {
         String data = this.Seleccionador_lectura();
         if (!"".equals(data)) {
             String pt1 = "\n";
@@ -2047,9 +2030,10 @@ int dcon=0;
             init_developer2 = Arrays.stream(iniciales).mapToInt(Integer::parseInt).toArray();
 
             JOptionPane.showMessageDialog(null, "Carga Completada");
-
+            return true;
         } else {
             JOptionPane.showMessageDialog(null, "El archivo está vacío");
+            return false;
         }
 
     }
@@ -2094,9 +2078,7 @@ int dcon=0;
             @Override
             public void run() {
                 new InterfazCompany().setVisible(true);
-                
-                
-                
+
             }
         }
         );
@@ -2153,7 +2135,6 @@ int dcon=0;
     private javax.swing.JLabel LabelDevelop;
     private javax.swing.JLabel LabelDevelop3;
     private javax.swing.JButton LecturaDeDatos;
-    private javax.swing.JButton LineaGrafica;
     private javax.swing.JLabel LogicaLabel;
     private javax.swing.JLabel LogicaLabel1;
     private javax.swing.JLabel LogicaLabel2;
@@ -2216,8 +2197,25 @@ int dcon=0;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

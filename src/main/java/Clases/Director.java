@@ -79,18 +79,19 @@ public class Director extends Thread {
                             comp.UpdateProfit(admonition);
                             if ("Capcom".equals(comp.name)) {
                                 IC.setNumber(String.valueOf(atrapadas));
-                                IC.setMoney_pm(String.valueOf(atrapadas*admonition));
+                                IC.setMoney_pm(String.valueOf(atrapadas * admonition));
                             } else {
                                 IC.setSQEnumber(String.valueOf(atrapadas));
-                                IC.setSQEmoney_pm(String.valueOf(atrapadas*admonition));
+                                IC.setSQEmoney_pm(String.valueOf(atrapadas * admonition));
                             }
                             sleep(5 * (dayDuration) / 288);
                             setStatus("Trabajando");
                             sleep(dayDuration / 288);
                         }
                     } else {
+                        sleep(5 * (dayDuration) / 288);
                         setStatus("Trabajando");
-                        sleep(dayDuration / 48);
+                        sleep(dayDuration / 288);
                     }
                 }
                 //función de actualizar costes en interfaz gráfica//
