@@ -1464,6 +1464,18 @@ public class InterfazCompany extends javax.swing.JFrame {
         if (data) {
             Deadday.setText(String.valueOf(dl));
             Dayduration.setText(String.valueOf(dd1));
+            EntradaNarrativa.setText(String.valueOf(init_developer1[0]));
+            EntradaNiveles.setText(String.valueOf(init_developer1[1]));
+            EntradaSprites.setText(String.valueOf(init_developer1[2]));
+            EntradaLogica.setText(String.valueOf(init_developer1[3]));
+            EntradaDLC.setText(String.valueOf(init_developer1[4]));
+            EntradaIntegrador.setText(String.valueOf(init_developer1[5]));
+            EntradaNarrativaSE.setText(String.valueOf(init_developer2[0]));
+            EntradaNivelesSE.setText(String.valueOf(init_developer2[1]));
+            EntradaSpritesSE.setText(String.valueOf(init_developer2[2]));
+            EntradaLogicaSE.setText(String.valueOf(init_developer2[3]));
+            EntradaDLCSE.setText(String.valueOf(init_developer2[4]));
+            EntradaIntegradorSE.setText(String.valueOf(init_developer2[5]));
             C0.Begin();
             C1.Begin();
         }

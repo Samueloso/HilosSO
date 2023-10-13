@@ -61,6 +61,7 @@ public class Developers extends Thread {
          sema.release();
         
         int Nworkers = comp.getInits(type);
+        System.out.println(Nworkers + "--:" + type);
         cumulo += productPerDay * Nworkers;
 
         if (cumulo >= 1) {
