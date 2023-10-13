@@ -23,8 +23,9 @@ public class Developers extends Thread {
     private Drive drive;
     private Semaphore sema;
     private Company comp;
+    private InterfazCompany IC;
 
-    public Developers(int type, int dd, int s, float pp, Drive drive, Semaphore sem, Company comp) {
+    public Developers(int type, int dd, int s, float pp, Drive drive, Semaphore sem, Company comp, InterfazCompany IC) {
         this.type = type;
         this.dayDuration = dd;
         this.sueldo = s;
@@ -32,6 +33,7 @@ public class Developers extends Thread {
         this.drive = drive;
         this.sema = sem;
         this.comp = comp;
+        this.IC=IC;
     }
 
     @Override
@@ -40,7 +42,9 @@ public class Developers extends Thread {
             try {
                 
                 Work();
+                
                 sleep(dayDuration);
+                
 
             } catch (InterruptedException ex) {
                 Logger.getLogger(Developers.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,8 +52,13 @@ public class Developers extends Thread {
         }
 
     }
-
-    public void Work() {
+    int conto=1;
+    public void Work() throws InterruptedException {
+         sema.acquire(1);
+        
+        IC.setDay(conto);
+         conto++;
+         sema.release();
         
         int Nworkers = comp.getInits(type);
         cumulo += productPerDay * Nworkers;
@@ -59,6 +68,7 @@ public class Developers extends Thread {
                 float temp = cumulo % 1;
                 int integer = (int) (cumulo - temp);
                 sema.acquire(1);
+
                 drive.addProduct(integer, type);
                 cumulo = temp;
                 comp.UpdateCosts(sueldo * Nworkers * 24);

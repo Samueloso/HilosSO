@@ -20,12 +20,15 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.xy.XYDataset;
@@ -242,6 +245,12 @@ public class InterfazCompany extends javax.swing.JFrame {
     public void setSQE_DLCTexto(String t) {
         this.SQE_DLCTexto.setText(t);
     }
+    
+    public void setDay(int d){
+        this.DayCorre.setText(Integer.toString(d));
+        
+        
+    }
 
     /**
      * @param SQESpriteTexto the SQESpriteTexto to set
@@ -371,6 +380,8 @@ public class InterfazCompany extends javax.swing.JFrame {
         Deadday = new javax.swing.JTextField();
         LabelDevelop3 = new javax.swing.JLabel();
         PastelButton = new javax.swing.JButton();
+        DayCorre = new javax.swing.JTextField();
+        LineaGrafica = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         GuionCapcomLabel1 = new javax.swing.JLabel();
@@ -998,7 +1009,23 @@ public class InterfazCompany extends javax.swing.JFrame {
                 PastelButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(PastelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 90, 40));
+        jPanel1.add(PastelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, 90, 40));
+
+        DayCorre.setBackground(new java.awt.Color(255, 255, 255));
+        DayCorre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayCorreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(DayCorre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 140, -1));
+
+        LineaGrafica.setText("Linea");
+        LineaGrafica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LineaGraficaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LineaGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
 
         jTabbedPane3.addTab("Configuraciones iniciales", jPanel1);
 
@@ -1835,8 +1862,7 @@ int dcon=0;
         }
         
     }//GEN-LAST:event_GananaciasSQEActionPerformed
- 
-    public void Graficadora(){}
+
 
     private void PastelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PastelButtonActionPerformed
         // TODO add your handling code here:
@@ -1852,7 +1878,7 @@ int dcon=0;
        int ganaciaCamcom= Integer.parseInt(GananciasTexto.getText());
         datos.setValue("Capcom", ganaciaCamcom);
         datos.setValue("SQ", ganancia);
-        grafico = ChartFactory.createPieChart("Grafica para numero de dias:"+ C0.getDay(),datos,true,true,false);
+        grafico = ChartFactory.createPieChart("Grafica para numero de dias:" + DayCorre.getText() ,datos,true,true,false);
         ChartFrame frame = new ChartFrame("Ejemplo",grafico);
         frame.pack();
         frame.setVisible(true);
@@ -1888,6 +1914,55 @@ int dcon=0;
 
         
     }//GEN-LAST:event_PastelButtonActionPerformed
+
+    private void DayCorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayCorreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DayCorreActionPerformed
+
+    private void LineaGraficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LineaGraficaActionPerformed
+        // TODO add your handling code here:
+        
+        
+        //XYSeries series= new XYSeries("utilidad vs tiempo");
+        //int ganancia =Integer.parseInt(this.GananaciasSQE.getText());
+        //int gananciaC =Integer.parseInt(this.GananciasTexto.getText());
+        //int dia= Integer.parseInt(DayCorre.getText());
+        //series.add(ganancia,dia);
+        //series.add(gananciaC,dia);
+        
+        //XYSeriesCollection dataset = new XYSeriesCollection();
+       // dataset.addSeries(series);
+        
+       //  JFreeChart chart = ChartFactory.createXYLineChart(
+                //"Utilidad vs Tiempo",
+                //"Tiempo",
+                //"Utilidad",
+                //dataset
+        //);
+        
+        //ChartFrame frame = new ChartFrame("Pueba",chart);
+        //frame.pack();
+       // frame.setVisible(true);
+       
+       JFreeChart grafico = null;
+       DefaultCategoryDataset datos= new  DefaultCategoryDataset();
+       int dato1 = Integer.parseInt(this.GananaciasSQE.getText());
+       int dato2 = Integer.parseInt(this.GananciasTexto.getText());
+       
+       grafico= ChartFactory.createLineChart("Hola", "X", "y", datos, PlotOrientation.VERTICAL, true, true, false);
+       
+       ChartPanel cPanel = new ChartPanel(grafico);
+       JFrame information = new JFrame("Grafica");
+       information.getContentPane().add(cPanel);
+       information.setVisible(true);
+       
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_LineaGraficaActionPerformed
 
     public String Seleccionador_lectura() {
         String texto = "";
@@ -2047,6 +2122,7 @@ int dcon=0;
     private javax.swing.JLabel DLCLabel;
     private javax.swing.JLabel DLCLabel1;
     private javax.swing.JTextField DLCTexto;
+    private javax.swing.JTextField DayCorre;
     private javax.swing.JTextField Dayduration;
     private javax.swing.JTextField Deadday;
     private javax.swing.JTextField DirectorSQE;
@@ -2077,6 +2153,7 @@ int dcon=0;
     private javax.swing.JLabel LabelDevelop;
     private javax.swing.JLabel LabelDevelop3;
     private javax.swing.JButton LecturaDeDatos;
+    private javax.swing.JButton LineaGrafica;
     private javax.swing.JLabel LogicaLabel;
     private javax.swing.JLabel LogicaLabel1;
     private javax.swing.JLabel LogicaLabel2;
